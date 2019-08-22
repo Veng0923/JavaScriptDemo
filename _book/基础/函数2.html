@@ -1,0 +1,501 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>变量作用域与解构赋值 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="函数3.html" />
+    
+    
+    <link rel="prev" href="函数.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="变量.html">
+            
+                <a href="变量.html">
+            
+                    
+                    变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="字符串.html">
+            
+                <a href="字符串.html">
+            
+                    
+                    字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="数组.html">
+            
+                <a href="数组.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <span>
+            
+                    
+                    函数
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="函数.html">
+            
+                <a href="函数.html">
+            
+                    
+                    函数定义调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4.2" data-path="函数2.html">
+            
+                <a href="函数2.html">
+            
+                    
+                    变量作用域与解构赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="函数3.html">
+            
+                <a href="函数3.html">
+            
+                    
+                    方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="正则表达式.html">
+            
+                <a href="正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >变量作用域与解构赋值</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x4E0E;&#x89E3;&#x6784;&#x8D4B;&#x503C;">&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x4E0E;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h1>
+<h3 id="&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;">&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;</h3>
+<p>&#x7531;&#x4E8E;JavaScript&#x7684;&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x6211;&#x4EEC;&#x5728;<code>for</code>&#x5FAA;&#x73AF;&#x7B49;&#x8BED;&#x53E5;&#x5757;&#x4E2D;&#x662F;&#x65E0;&#x6CD5;&#x5B9A;&#x4E49;&#x5177;&#x6709;&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x53D8;&#x91CF;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">100</span>; i++) {
+        <span class="hljs-comment">//</span>
+    }
+    i += <span class="hljs-number">100</span>; <span class="hljs-comment">// &#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x53D8;&#x91CF;i</span>
+}
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;ES6&#x5F15;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x5173;&#x952E;&#x5B57;<code>let</code>&#xFF0C;&#x7528;<code>let</code>&#x66FF;&#x4EE3;<code>var</code>&#x53EF;&#x4EE5;&#x7533;&#x660E;&#x4E00;&#x4E2A;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">100</span>; i++) {
+        sum += i;
+    }
+    <span class="hljs-comment">// SyntaxError:</span>
+    i += <span class="hljs-number">1</span>;
+}
+</code></pre>
+<h3 id="&#x5E38;&#x91CF;">&#x5E38;&#x91CF;</h3>
+<p>&#x7531;&#x4E8E;<code>var</code>&#x548C;<code>let</code>&#x7533;&#x660E;&#x7684;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x7533;&#x660E;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#xFF0C;&#x5728;ES6&#x4E4B;&#x524D;&#x662F;&#x4E0D;&#x884C;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x7528;&#x5168;&#x90E8;&#x5927;&#x5199;&#x7684;&#x53D8;&#x91CF;&#x6765;&#x8868;&#x793A;&#x201C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#xFF0C;&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x5B83;&#x7684;&#x503C;&#x201D;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> PI = <span class="hljs-number">3.14</span>;
+</code></pre>
+<p>ES6&#x6807;&#x51C6;&#x5F15;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x5173;&#x952E;&#x5B57;<code>const</code>&#x6765;&#x5B9A;&#x4E49;&#x5E38;&#x91CF;&#xFF0C;<code>const</code>&#x4E0E;<code>let</code>&#x90FD;&#x5177;&#x6709;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">const</span> PI = <span class="hljs-number">3.14</span>;
+PI = <span class="hljs-number">3</span>; <span class="hljs-comment">// &#x67D0;&#x4E9B;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x62A5;&#x9519;&#xFF0C;&#x4F46;&#x662F;&#x65E0;&#x6548;&#x679C;&#xFF01;</span>
+PI; <span class="hljs-comment">// 3.14</span>
+</code></pre>
+<h3 id="&#x89E3;&#x6784;&#x8D4B;&#x503C;">&#x89E3;&#x6784;&#x8D4B;&#x503C;</h3>
+<p>&#x4ECE;ES6&#x5F00;&#x59CB;&#xFF0C;JavaScript&#x5F15;&#x5165;&#x4E86;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5BF9;&#x4E00;&#x7EC4;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x3002;</p>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#xFF1F;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x770B;&#x4F20;&#x7EDF;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x5982;&#x4F55;&#x628A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x5206;&#x522B;&#x8D4B;&#x503C;&#x7ED9;&#x51E0;&#x4E2A;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> array = [<span class="hljs-string">&apos;hello&apos;</span>, <span class="hljs-string">&apos;JavaScript&apos;</span>, <span class="hljs-string">&apos;ES6&apos;</span>];
+<span class="hljs-keyword">var</span> x = array[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">var</span> y = array[<span class="hljs-number">1</span>];
+<span class="hljs-keyword">var</span> z = array[<span class="hljs-number">2</span>];
+</code></pre>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x5728;ES6&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#xFF0C;&#x76F4;&#x63A5;&#x5BF9;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x540C;&#x65F6;&#x8D4B;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5982;&#x679C;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x5C31;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;: </span>
+<span class="hljs-keyword">var</span> [x, y, z] = [<span class="hljs-string">&apos;hello&apos;</span>, <span class="hljs-string">&apos;JavaScript&apos;</span>, <span class="hljs-string">&apos;ES6&apos;</span>];
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5BF9;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x8981;&#x7528;<code>[...]</code>&#x62EC;&#x8D77;&#x6765;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6570;&#x7EC4;&#x672C;&#x8EAB;&#x8FD8;&#x6709;&#x5D4C;&#x5957;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#xFF0C;&#x6CE8;&#x610F;&#x5D4C;&#x5957;&#x5C42;&#x6B21;&#x548C;&#x4F4D;&#x7F6E;&#x8981;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> [x, [y, z]] = [<span class="hljs-string">&apos;hello&apos;</span>, [<span class="hljs-string">&apos;JavaScript&apos;</span>, <span class="hljs-string">&apos;ES6&apos;</span>]];
+x; <span class="hljs-comment">// &apos;hello&apos;</span>
+y; <span class="hljs-comment">// &apos;JavaScript&apos;</span>
+z; <span class="hljs-comment">// &apos;ES6&apos;</span>
+</code></pre>
+<p>&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x8FD8;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x67D0;&#x4E9B;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> [, , z] = [<span class="hljs-string">&apos;hello&apos;</span>, <span class="hljs-string">&apos;JavaScript&apos;</span>, <span class="hljs-string">&apos;ES6&apos;</span>]; <span class="hljs-comment">// &#x5FFD;&#x7565;&#x524D;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x53EA;&#x5BF9;z&#x8D4B;&#x503C;&#x7B2C;&#x4E09;&#x4E2A;&#x5143;&#x7D20;</span>
+z; <span class="hljs-comment">// &apos;ES6&apos;</span>
+</code></pre>
+<p>&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BF9;&#x5D4C;&#x5957;&#x7684;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x53EA;&#x8981;&#x4FDD;&#x8BC1;&#x5BF9;&#x5E94;&#x7684;&#x5C42;&#x6B21;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = {
+    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
+    age: <span class="hljs-number">20</span>,
+    gender: <span class="hljs-string">&apos;male&apos;</span>,
+    passport: <span class="hljs-string">&apos;G-12345678&apos;</span>,
+    school: <span class="hljs-string">&apos;No.4 middle school&apos;</span>,
+    address: {
+        city: <span class="hljs-string">&apos;Beijing&apos;</span>,
+        street: <span class="hljs-string">&apos;No.1 Road&apos;</span>,
+        zipcode: <span class="hljs-string">&apos;100001&apos;</span>
+    }
+};
+<span class="hljs-keyword">var</span> {name, address: {city, zip}} = person;
+name; <span class="hljs-comment">// &apos;&#x5C0F;&#x660E;&apos;</span>
+city; <span class="hljs-comment">// &apos;Beijing&apos;</span>
+zip; <span class="hljs-comment">// undefined, &#x56E0;&#x4E3A;&#x5C5E;&#x6027;&#x540D;&#x662F;zipcode&#x800C;&#x4E0D;&#x662F;zip</span>
+<span class="hljs-comment">// &#x6CE8;&#x610F;: address&#x4E0D;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;city&#x548C;zip&#x83B7;&#x5F97;&#x5D4C;&#x5957;&#x7684;address&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;:</span>
+address; <span class="hljs-comment">// Uncaught ReferenceError: address is not defined</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x5BF9;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x53D8;&#x91CF;&#x5C06;&#x88AB;&#x8D4B;&#x503C;&#x4E3A;<code>undefined</code>&#xFF0C;&#x8FD9;&#x548C;&#x5F15;&#x7528;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#x83B7;&#x5F97;<code>undefined</code>&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x548C;&#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x6CD5;&#x83B7;&#x53D6;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = {
+    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
+    age: <span class="hljs-number">20</span>,
+    gender: <span class="hljs-string">&apos;male&apos;</span>,
+    passport: <span class="hljs-string">&apos;G-12345678&apos;</span>,
+    school: <span class="hljs-string">&apos;No.4 middle school&apos;</span>
+};
+
+<span class="hljs-comment">// &#x628A;passport&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;id:</span>
+<span class="hljs-keyword">let</span> {name, passport:id} = person;
+name; <span class="hljs-comment">// &apos;&#x5C0F;&#x660E;&apos;</span>
+id; <span class="hljs-comment">// &apos;G-12345678&apos;</span>
+<span class="hljs-comment">// &#x6CE8;&#x610F;: passport&#x4E0D;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x53D8;&#x91CF;id&#x83B7;&#x5F97;passport&#x5C5E;&#x6027;:</span>
+passport; <span class="hljs-comment">// Uncaught ReferenceError: passport is not defined</span>
+</code></pre>
+<p>&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x907F;&#x514D;&#x4E86;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#x8FD4;&#x56DE;<code>undefined</code>&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = {
+    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
+    age: <span class="hljs-number">20</span>,
+    gender: <span class="hljs-string">&apos;male&apos;</span>,
+    passport: <span class="hljs-string">&apos;G-12345678&apos;</span>
+};
+
+<span class="hljs-comment">// &#x5982;&#x679C;person&#x5BF9;&#x8C61;&#x6CA1;&#x6709;single&#x5C5E;&#x6027;&#xFF0C;&#x9ED8;&#x8BA4;&#x8D4B;&#x503C;&#x4E3A;true:</span>
+<span class="hljs-keyword">var</span> {name, single=<span class="hljs-literal">true</span>} = person;
+name; <span class="hljs-comment">// &apos;&#x5C0F;&#x660E;&apos;</span>
+single; <span class="hljs-comment">// true</span>
+</code></pre>
+<p>&#x6709;&#x4E9B;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x53D8;&#x91CF;&#x5DF2;&#x7ECF;&#x88AB;&#x58F0;&#x660E;&#x4E86;&#xFF0C;&#x518D;&#x6B21;&#x8D4B;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6B63;&#x786E;&#x7684;&#x5199;&#x6CD5;&#x4E5F;&#x4F1A;&#x62A5;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x58F0;&#x660E;&#x53D8;&#x91CF;:</span>
+<span class="hljs-keyword">var</span> x, y;
+<span class="hljs-comment">// &#x89E3;&#x6784;&#x8D4B;&#x503C;:</span>
+{x, y} = { name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>, x: <span class="hljs-number">100</span>, y: <span class="hljs-number">200</span>};
+<span class="hljs-comment">// &#x8BED;&#x6CD5;&#x9519;&#x8BEF;: Uncaught SyntaxError: Unexpected token =</span>
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;JavaScript&#x5F15;&#x64CE;&#x628A;<code>{</code>&#x5F00;&#x5934;&#x7684;&#x8BED;&#x53E5;&#x5F53;&#x4F5C;&#x4E86;&#x5757;&#x5904;&#x7406;&#xFF0C;&#x4E8E;&#x662F;<code>=</code>&#x4E0D;&#x518D;&#x5408;&#x6CD5;&#x3002;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x5C0F;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x6765;&#xFF1A;</p>
+<pre><code class="lang-javascript">({x, y} = { name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>, x: <span class="hljs-number">100</span>, y: <span class="hljs-number">200</span>});
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x573A;&#x666F;</h3>
+<p>&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x5728;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x7B80;&#x5316;&#x4EE3;&#x7801;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;<code>x</code>&#x548C;<code>y</code>&#x7684;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x5199;&#xFF0C;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>;
+[x, y] = [y, x]
+</code></pre>
+<p>&#x5FEB;&#x901F;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x57DF;&#x540D;&#x548C;&#x8DEF;&#x5F84;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> {hostname:domain, pathname:path} = location;
+</code></pre>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x89E3;&#x6784;&#x76F4;&#x63A5;&#x628A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x7ED1;&#x5B9A;&#x5230;&#x53D8;&#x91CF;&#x4E2D;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>Date</code>&#x5BF9;&#x8C61;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildDate</span>(<span class="hljs-params">{year, month, day, hour=0, minute=0, second=0}</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(year + <span class="hljs-string">&apos;-&apos;</span> + month + <span class="hljs-string">&apos;-&apos;</span> + day + <span class="hljs-string">&apos; &apos;</span> + hour + <span class="hljs-string">&apos;:&apos;</span> + minute + <span class="hljs-string">&apos;:&apos;</span> + second);
+}
+</code></pre>
+<p>&#x5B83;&#x7684;&#x65B9;&#x4FBF;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x53EA;&#x9700;&#x8981;<code>year</code>&#x3001;<code>month</code>&#x548C;<code>day</code>&#x8FD9;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-javascript">buildDate({ year: <span class="hljs-number">2017</span>, month: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span> });
+<span class="hljs-comment">// Sun Jan 01 2017 00:00:00 GMT+0800 (CST)</span>
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x5165;<code>hour</code>&#x3001;<code>minute</code>&#x548C;<code>second</code>&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-javascript">buildDate({ year: <span class="hljs-number">2017</span>, month: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span>, hour: <span class="hljs-number">20</span>, minute: <span class="hljs-number">15</span> });
+<span class="hljs-comment">// Sun Jan 01 2017 20:15:00 GMT+0800 (CST)</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x4EE3;&#x7801;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x652F;&#x6301;ES6&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x7279;&#x6027;&#x7684;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;&#x76EE;&#x524D;&#x652F;&#x6301;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x5305;&#x62EC;Chrome&#xFF0C;Firefox&#xFF0C;Edge&#x7B49;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="函数.html" class="navigation navigation-prev " aria-label="Previous page: 函数定义调用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="函数3.html" class="navigation navigation-next " aria-label="Next page: 方法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"变量作用域与解构赋值","level":"1.2.4.2","depth":3,"next":{"title":"方法","level":"1.2.4.3","depth":3,"path":"基础/函数3.md","ref":"基础/函数3.md","articles":[]},"previous":{"title":"函数定义调用","level":"1.2.4.1","depth":3,"path":"基础/函数.md","ref":"基础/函数.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"基础/函数2.md","mtime":"2019-08-22T14:26:18.947Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T14:43:00.967Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
