@@ -12,5 +12,6 @@
     * [高阶函数](基础/高阶函数.md)
         * [map/reduce](基础/map-reduce.md)
         * [filter](基础/filter.md)
+        * [sort](基础/sort.md)
     * [正则表达式](基础/正则表达式.md)
 
