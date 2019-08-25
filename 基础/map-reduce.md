@@ -32,4 +32,3 @@ arr.reduce(function (x, y) {
     return x + y;
 }); // 25
 ```
-
