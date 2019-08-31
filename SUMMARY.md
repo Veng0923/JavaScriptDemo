@@ -18,5 +18,7 @@
         * [箭头函数](基础/箭头函数.md)
         * [generator](基础/generator.md)
     * [标准对象](基础/标准对象.md)
+        * [Date](基础/Date.md)
+        * [正则表达式](基础/RepExp.md)
     * [正则表达式](基础/正则表达式.md)
 
