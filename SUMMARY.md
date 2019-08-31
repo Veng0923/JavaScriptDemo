@@ -14,5 +14,6 @@
         * [filter](基础/filter.md)
         * [sort](基础/sort.md)
         * [array其他方法](基础/array其他方法.md)
+        * [闭包](基础/闭包.md)
     * [正则表达式](基础/正则表达式.md)
 
