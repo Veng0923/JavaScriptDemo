@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>方法函数 · JavaScript学习</title>
+        <title>class继承 · JavaScript学习</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="高阶函数.html" />
+    <link rel="next" href="../浏览器/浏览器.html" />
     
     
-    <link rel="prev" href="函数2.html" />
+    <link rel="prev" href="原型继承.html" />
     
 
     </head>
@@ -211,7 +211,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4.3" data-path="函数3.html">
+        <li class="chapter " data-level="1.2.4.3" data-path="函数3.html">
             
                 <a href="函数3.html">
             
@@ -450,7 +450,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6.3" data-path="class继承.html">
+        <li class="chapter active" data-level="1.2.6.3" data-path="class继承.html">
             
                 <a href="class继承.html">
             
@@ -619,7 +619,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >方法函数</a>
+        <a href=".." >class继承</a>
     </h1>
 </div>
 
@@ -634,96 +634,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h1>
-<p>&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;&#xFF0C;&#x79F0;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
-<p>&#x5728;JavaScript&#x4E2D;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x5B9A;&#x4E49;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xiaoming = {
-    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
-    birth: <span class="hljs-number">1990</span>
-};
-</code></pre>
-<p>&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7ED9;<code>xiaoming</code>&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x505A;&#x66F4;&#x591A;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5199;&#x4E2A;<code>age()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;<code>xiaoming</code>&#x7684;&#x5E74;&#x9F84;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xiaoming = {
-    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
-    birth: <span class="hljs-number">1990</span>,
-    age: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getFullYear();
-        <span class="hljs-keyword">return</span> y - <span class="hljs-keyword">this</span>.birth;
-    }
-};
-
-xiaoming.age; <span class="hljs-comment">// function xiaoming.age()</span>
-xiaoming.age(); <span class="hljs-comment">// &#x4ECA;&#x5E74;&#x8C03;&#x7528;&#x662F;25,&#x660E;&#x5E74;&#x8C03;&#x7528;&#x5C31;&#x53D8;&#x6210;26&#x4E86;</span>
-</code></pre>
-<p>&#x7ED1;&#x5B9A;&#x5230;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x51FD;&#x6570;&#x79F0;&#x4E3A;&#x65B9;&#x6CD5;&#xFF0C;&#x548C;&#x666E;&#x901A;&#x51FD;&#x6570;&#x4E5F;&#x6CA1;&#x5565;&#x533A;&#x522B;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x5728;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;<code>this</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E1C;&#x4E1C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<p>&#x5728;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#xFF0C;<code>this</code>&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x59CB;&#x7EC8;&#x6307;&#x5411;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;<code>xiaoming</code>&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x6240;&#x4EE5;&#xFF0C;<code>this.birth</code>&#x53EF;&#x4EE5;&#x62FF;&#x5230;<code>xiaoming</code>&#x7684;<code>birth</code>&#x5C5E;&#x6027;&#x3002;</p>
-<p>&#x8BA9;&#x6211;&#x4EEC;&#x62C6;&#x5F00;&#x5199;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAge</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getFullYear();
-    <span class="hljs-keyword">return</span> y - <span class="hljs-keyword">this</span>.birth;
+                                <h1 id="class&#x7EE7;&#x627F;">class&#x7EE7;&#x627F;</h1>
+<p>JavaScript&#x7684;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x662F;&#x57FA;&#x4E8E;&#x539F;&#x578B;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x7279;&#x70B9;&#x662F;&#x7B80;&#x5355;&#xFF0C;&#x7F3A;&#x70B9;&#x662F;&#x7406;&#x89E3;&#x8D77;&#x6765;&#x6BD4;&#x4F20;&#x7EDF;&#x7684;&#x7C7B;&#xFF0D;&#x5B9E;&#x4F8B;&#x6A21;&#x578B;&#x8981;&#x56F0;&#x96BE;&#xFF0C;&#x6700;&#x5927;&#x7684;&#x7F3A;&#x70B9;&#x662F;&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x7F16;&#x5199;&#x5927;&#x91CF;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x6B63;&#x786E;&#x5B9E;&#x73B0;&#x539F;&#x578B;&#x94FE;&#x3002;</p>
+<p>&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x5199;&#x6CD5;&#xFF1F;&#x6709;&#xFF01;</p>
+<p>&#x65B0;&#x7684;&#x5173;&#x952E;&#x5B57;<code>class</code>&#x4ECE;ES6&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x88AB;&#x5F15;&#x5165;&#x5230;JavaScript&#x4E2D;&#x3002;<code>class</code>&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x8BA9;&#x5B9A;&#x4E49;&#x7C7B;&#x66F4;&#x7B80;&#x5355;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x56DE;&#x987E;&#x7528;&#x51FD;&#x6570;&#x5B9E;&#x73B0;<code>Student</code>&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Student</span>(<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-keyword">this</span>.name = name;
 }
 
-<span class="hljs-keyword">var</span> xiaoming = {
-    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
-    birth: <span class="hljs-number">1990</span>,
-    age: getAge
-};
-
-xiaoming.age(); <span class="hljs-comment">// 25, &#x6B63;&#x5E38;&#x7ED3;&#x679C;</span>
-getAge(); <span class="hljs-comment">// NaN</span>
-</code></pre>
-<p>&#x5355;&#x72EC;&#x8C03;&#x7528;&#x51FD;&#x6570;<code>getAge()</code>&#x600E;&#x4E48;&#x8FD4;&#x56DE;&#x4E86;<code>NaN</code>&#xFF1F;<em>&#x8BF7;&#x6CE8;&#x610F;</em>&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x8FDB;&#x5165;&#x5230;&#x4E86;JavaScript&#x7684;&#x4E00;&#x4E2A;&#x5927;&#x5751;&#x91CC;&#x3002;</p>
-<p>JavaScript&#x7684;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x5982;&#x679C;&#x8C03;&#x7528;&#x4E86;<code>this</code>&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;<code>this</code>&#x5230;&#x5E95;&#x6307;&#x5411;&#x8C01;&#xFF1F;</p>
-<p>&#x7B54;&#x6848;&#x662F;&#xFF0C;&#x89C6;&#x60C5;&#x51B5;&#x800C;&#x5B9A;&#xFF01;</p>
-<p>&#x5982;&#x679C;&#x4EE5;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#xFF0C;&#x6BD4;&#x5982;<code>xiaoming.age()</code>&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7684;<code>this</code>&#x6307;&#x5411;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;<code>xiaoming</code>&#xFF0C;&#x8FD9;&#x662F;&#x7B26;&#x5408;&#x6211;&#x4EEC;&#x9884;&#x671F;&#x7684;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x5355;&#x72EC;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x6BD4;&#x5982;<code>getAge()</code>&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7684;<code>this</code>&#x6307;&#x5411;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;<code>window</code>&#x3002;</p>
-<p>&#x5751;&#x7239;&#x554A;&#xFF01;</p>
-<p>&#x66F4;&#x5751;&#x7239;&#x7684;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E48;&#x5199;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> fn = xiaoming.age; <span class="hljs-comment">// &#x5148;&#x62FF;&#x5230;xiaoming&#x7684;age&#x51FD;&#x6570;</span>
-fn(); <span class="hljs-comment">// NaN</span>
-</code></pre>
-<p>&#x4E5F;&#x662F;&#x4E0D;&#x884C;&#x7684;&#xFF01;&#x8981;&#x4FDD;&#x8BC1;<code>this</code>&#x6307;&#x5411;&#x6B63;&#x786E;&#xFF0C;&#x5FC5;&#x987B;&#x7528;<code>obj.xxx()</code>&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#xFF01;</p>
-<p>&#x7531;&#x4E8E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5DE8;&#x5927;&#x7684;&#x8BBE;&#x8BA1;&#x9519;&#x8BEF;&#xFF0C;&#x8981;&#x60F3;&#x7EA0;&#x6B63;&#x53EF;&#x6CA1;&#x90A3;&#x4E48;&#x7B80;&#x5355;&#x3002;ECMA&#x51B3;&#x5B9A;&#xFF0C;&#x5728;strict&#x6A21;&#x5F0F;&#x4E0B;&#x8BA9;&#x51FD;&#x6570;&#x7684;<code>this</code>&#x6307;&#x5411;<code>undefined</code>&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5728;strict&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x4F60;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xiaoming = {
-    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
-    birth: <span class="hljs-number">1990</span>,
-    age: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getFullYear();
-        <span class="hljs-keyword">return</span> y - <span class="hljs-keyword">this</span>.birth;
-    }
-};
-
-<span class="hljs-keyword">var</span> fn = xiaoming.age;
-fn(); <span class="hljs-comment">// Uncaught TypeError: Cannot read property &apos;birth&apos; of undefined</span>
-</code></pre>
-<h3 id="apply">apply</h3>
-<p>&#x867D;&#x7136;&#x5728;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x662F;&#x5426;&#x662F;strict&#x6A21;&#x5F0F;&#xFF0C;<code>this</code>&#x6307;&#x5411;<code>undefined</code>&#x6216;<code>window</code>&#xFF0C;&#x4E0D;&#x8FC7;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x63A7;&#x5236;<code>this</code>&#x7684;&#x6307;&#x5411;&#x7684;&#xFF01;</p>
-<p>&#x8981;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x7684;<code>this</code>&#x6307;&#x5411;&#x54EA;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x7684;<code>apply</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x7684;<code>this</code>&#x53D8;&#x91CF;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;<code>Array</code>&#xFF0C;&#x8868;&#x793A;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
-<p>&#x7528;<code>apply</code>&#x4FEE;&#x590D;<code>getAge()</code>&#x8C03;&#x7528;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAge</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getFullYear();
-    <span class="hljs-keyword">return</span> y - <span class="hljs-keyword">this</span>.birth;
+Student.prototype.hello = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">&apos;Hello, &apos;</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">&apos;!&apos;</span>);
 }
-
-<span class="hljs-keyword">var</span> xiaoming = {
-    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
-    birth: <span class="hljs-number">1990</span>,
-    age: getAge
-};
-
-xiaoming.age(); <span class="hljs-comment">// 25</span>
-getAge.apply(xiaoming, []); <span class="hljs-comment">// 25, this&#x6307;&#x5411;xiaoming, &#x53C2;&#x6570;&#x4E3A;&#x7A7A;</span>
 </code></pre>
-<p>&#x53E6;&#x4E00;&#x4E2A;&#x4E0E;<code>apply()</code>&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#x662F;<code>call()</code>&#xFF0C;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;&#xFF1A;</p>
-<ul>
-<li><code>apply()</code>&#x628A;&#x53C2;&#x6570;&#x6253;&#x5305;&#x6210;<code>Array</code>&#x518D;&#x4F20;&#x5165;&#xFF1B;</li>
-<li><code>call()</code>&#x628A;&#x53C2;&#x6570;&#x6309;&#x987A;&#x5E8F;&#x4F20;&#x5165;&#x3002;</li>
-</ul>
-<p>&#x6BD4;&#x5982;&#x8C03;&#x7528;<code>Math.max(3, 5, 4)</code>&#xFF0C;&#x5206;&#x522B;&#x7528;<code>apply()</code>&#x548C;<code>call()</code>&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-built_in">Math</span>.max.apply(<span class="hljs-literal">null</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">// 5</span>
-<span class="hljs-built_in">Math</span>.max.call(<span class="hljs-literal">null</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">// 5</span>
+<p>&#x5982;&#x679C;&#x7528;&#x65B0;&#x7684;<code>class</code>&#x5173;&#x952E;&#x5B57;&#x6765;&#x7F16;&#x5199;<code>Student</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+    <span class="hljs-keyword">constructor</span>(name) {
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    hello() {
+        alert(<span class="hljs-string">&apos;Hello, &apos;</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">&apos;!&apos;</span>);
+    }
+}
 </code></pre>
-<p>&#x5BF9;&#x666E;&#x901A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x628A;<code>this</code>&#x7ED1;&#x5B9A;&#x4E3A;<code>null</code>&#x3002;</p>
+<p>&#x6BD4;&#x8F83;&#x4E00;&#x4E0B;&#x5C31;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;<code>class</code>&#x7684;&#x5B9A;&#x4E49;&#x5305;&#x542B;&#x4E86;&#x6784;&#x9020;&#x51FD;&#x6570;<code>constructor</code>&#x548C;&#x5B9A;&#x4E49;&#x5728;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x51FD;&#x6570;<code>hello()</code>&#xFF08;&#x6CE8;&#x610F;&#x6CA1;&#x6709;<code>function</code>&#x5173;&#x952E;&#x5B57;&#xFF09;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x907F;&#x514D;&#x4E86;<code>Student.prototype.hello = function () {...}</code>&#x8FD9;&#x6837;&#x5206;&#x6563;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>Student</code>&#x5BF9;&#x8C61;&#x4EE3;&#x7801;&#x548C;&#x524D;&#x9762;&#x7AE0;&#x8282;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xiaoming = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>);
+xiaoming.hello();
+</code></pre>
+<h3 id="class&#x7EE7;&#x627F;">class&#x7EE7;&#x627F;</h3>
+<p>&#x7528;<code>class</code>&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x5DE8;&#x5927;&#x7684;&#x597D;&#x5904;&#x662F;&#x7EE7;&#x627F;&#x66F4;&#x65B9;&#x4FBF;&#x4E86;&#x3002;&#x60F3;&#x4E00;&#x60F3;&#x6211;&#x4EEC;&#x4ECE;<code>Student</code>&#x6D3E;&#x751F;&#x4E00;&#x4E2A;<code>PrimaryStudent</code>&#x9700;&#x8981;&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x91CF;&#x3002;&#x73B0;&#x5728;&#xFF0C;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x7684;&#x4E2D;&#x95F4;&#x5BF9;&#x8C61;&#xFF0C;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7B49;&#x7B49;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;<code>extends</code>&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrimaryStudent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Student</span> </span>{
+    <span class="hljs-keyword">constructor</span>(name, grade) {
+        <span class="hljs-keyword">super</span>(name); <span class="hljs-comment">// &#x8BB0;&#x5F97;&#x7528;super&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;!</span>
+        <span class="hljs-keyword">this</span>.grade = grade;
+    }
+
+    myGrade() {
+        alert(<span class="hljs-string">&apos;I am at grade &apos;</span> + <span class="hljs-keyword">this</span>.grade);
+    }
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;<code>PrimaryStudent</code>&#x7684;&#x5B9A;&#x4E49;&#x4E5F;&#x662F;class&#x5173;&#x952E;&#x5B57;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x800C;<code>extends</code>&#x5219;&#x8868;&#x793A;&#x539F;&#x578B;&#x94FE;&#x5BF9;&#x8C61;&#x6765;&#x81EA;<code>Student</code>&#x3002;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x4E0E;&#x7236;&#x7C7B;&#x4E0D;&#x592A;&#x76F8;&#x540C;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;<code>PrimaryStudent</code>&#x9700;&#x8981;<code>name</code>&#x548C;<code>grade</code>&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>super(name)</code>&#x6765;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x7236;&#x7C7B;&#x7684;<code>name</code>&#x5C5E;&#x6027;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p><code>PrimaryStudent</code>&#x5DF2;&#x7ECF;&#x81EA;&#x52A8;&#x83B7;&#x5F97;&#x4E86;&#x7236;&#x7C7B;<code>Student</code>&#x7684;<code>hello</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x53C8;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x65B0;&#x7684;<code>myGrade</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>ES6&#x5F15;&#x5165;&#x7684;<code>class</code>&#x548C;&#x539F;&#x6709;&#x7684;JavaScript&#x539F;&#x578B;&#x7EE7;&#x627F;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;&#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x4EEC;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x533A;&#x522B;&#xFF0C;<code>class</code>&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x8BA9;JavaScript&#x5F15;&#x64CE;&#x53BB;&#x5B9E;&#x73B0;&#x539F;&#x6765;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x7684;&#x539F;&#x578B;&#x94FE;&#x4EE3;&#x7801;&#x3002;&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#xFF0C;&#x7528;<code>class</code>&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x6781;&#x5927;&#x5730;&#x7B80;&#x5316;&#x4E86;&#x539F;&#x578B;&#x94FE;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x4F60;&#x4E00;&#x5B9A;&#x4F1A;&#x95EE;&#xFF0C;<code>class</code>&#x8FD9;&#x4E48;&#x597D;&#x7528;&#xFF0C;&#x80FD;&#x4E0D;&#x80FD;&#x73B0;&#x5728;&#x5C31;&#x7528;&#x4E0A;&#xFF1F;</p>
+<p>&#x73B0;&#x5728;&#x7528;&#x8FD8;&#x65E9;&#x4E86;&#x70B9;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x4E3B;&#x6D41;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x652F;&#x6301;ES6&#x7684;class&#x3002;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x73B0;&#x5728;&#x5C31;&#x7528;&#x4E0A;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x628A;<code>class</code>&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x4E3A;&#x4F20;&#x7EDF;&#x7684;<code>prototype</code>&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;<a href="https://babeljs.io/" target="_blank">Babel</a>&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x3002;</p>
 
                                 
                                 </section>
@@ -751,12 +708,12 @@ getAge.apply(xiaoming, []); <span class="hljs-comment">// 25, this&#x6307;&#x541
 
             
                 
-                <a href="函数2.html" class="navigation navigation-prev " aria-label="Previous page: 变量作用域与解构赋值">
+                <a href="原型继承.html" class="navigation navigation-prev " aria-label="Previous page: 原型继承">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="高阶函数.html" class="navigation navigation-next " aria-label="Next page: 高阶函数">
+                <a href="../浏览器/浏览器.html" class="navigation navigation-next " aria-label="Next page: 浏览器">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -767,7 +724,7 @@ getAge.apply(xiaoming, []); <span class="hljs-comment">// 25, this&#x6307;&#x541
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"方法函数","level":"1.2.4.3","depth":3,"next":{"title":"高阶函数","level":"1.2.4.4","depth":3,"path":"基础/高阶函数.md","ref":"基础/高阶函数.md","articles":[{"title":"map/reduce","level":"1.2.4.4.1","depth":4,"path":"基础/map-reduce.md","ref":"基础/map-reduce.md","articles":[]},{"title":"filter","level":"1.2.4.4.2","depth":4,"path":"基础/filter.md","ref":"基础/filter.md","articles":[]},{"title":"sort","level":"1.2.4.4.3","depth":4,"path":"基础/sort.md","ref":"基础/sort.md","articles":[]},{"title":"array其他方法","level":"1.2.4.4.4","depth":4,"path":"基础/array其他方法.md","ref":"基础/array其他方法.md","articles":[]}]},"previous":{"title":"变量作用域与解构赋值","level":"1.2.4.2","depth":3,"path":"基础/函数2.md","ref":"基础/函数2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","-search","search-pro","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search-pro":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"qq":true,"all":["weibo","qq","qzone","weibo","instapaper"],"facebook":true,"weibo":true,"instapaper":false,"twitter":true,"vk":false,"google":false,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/函数3.md","mtime":"2019-08-23T07:32:53.814Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-02T10:30:13.917Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"class继承","level":"1.2.6.3","depth":3,"next":{"title":"浏览器","level":"1.3","depth":1,"path":"浏览器/浏览器.md","ref":"浏览器/浏览器.md","articles":[{"title":"浏览器对象","level":"1.3.1","depth":2,"path":"浏览器/浏览器对象.md","ref":"浏览器/浏览器对象.md","articles":[]},{"title":"操作DOM","level":"1.3.2","depth":2,"path":"浏览器/操作DOM.md","ref":"浏览器/操作DOM.md","articles":[{"title":"更新DOM","level":"1.3.2.1","depth":3,"path":"浏览器/更新DOM.md","ref":"浏览器/更新DOM.md","articles":[]},{"title":"插入DOM","level":"1.3.2.2","depth":3,"path":"浏览器/插入DOM.md","ref":"浏览器/插入DOM.md","articles":[]},{"title":"删除DOM","level":"1.3.2.3","depth":3,"path":"浏览器/删除DOM.md","ref":"浏览器/删除DOM.md","articles":[]}]},{"title":"操作表单","level":"1.3.3","depth":2,"path":"浏览器/操作表单.md","ref":"浏览器/操作表单.md","articles":[]},{"title":"操作文件","level":"1.3.4","depth":2,"path":"浏览器/操作文件.md","ref":"浏览器/操作文件.md","articles":[]}]},"previous":{"title":"原型继承","level":"1.2.6.2","depth":3,"path":"基础/原型继承.md","ref":"基础/原型继承.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","-search","search-pro","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search-pro":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"qq":true,"all":["weibo","qq","qzone","weibo","instapaper"],"facebook":true,"weibo":true,"instapaper":false,"twitter":true,"vk":false,"google":false,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/class继承.md","mtime":"2019-09-02T06:24:21.307Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-02T10:30:13.917Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
