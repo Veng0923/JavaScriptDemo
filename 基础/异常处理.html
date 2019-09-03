@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>原型继承 · JavaScript学习</title>
+        <title>异常处理 · JavaScript学习</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="class继承.html" />
+    <link rel="next" href="../浏览器/浏览器.html" />
     
     
-    <link rel="prev" href="创建对象.html" />
+    <link rel="prev" href="class继承.html" />
     
 
     </head>
@@ -437,7 +437,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.6.2" data-path="原型继承.html">
+        <li class="chapter " data-level="1.2.6.2" data-path="原型继承.html">
             
                 <a href="原型继承.html">
             
@@ -468,7 +468,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="异常处理.html">
+        <li class="chapter active" data-level="1.2.7" data-path="异常处理.html">
             
                 <a href="异常处理.html">
             
@@ -819,7 +819,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >原型继承</a>
+        <a href=".." >异常处理</a>
     </h1>
 </div>
 
@@ -834,77 +834,73 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x539F;&#x578B;&#x7EE7;&#x627F;">&#x539F;&#x578B;&#x7EE7;&#x627F;</h1>
-<p>&#x5728;&#x4F20;&#x7EDF;&#x7684;&#x57FA;&#x4E8E;Class&#x7684;&#x8BED;&#x8A00;&#x5982;Java&#x3001;C++&#x4E2D;&#xFF0C;&#x7EE7;&#x627F;&#x7684;&#x672C;&#x8D28;&#x662F;&#x6269;&#x5C55;&#x4E00;&#x4E2A;&#x5DF2;&#x6709;&#x7684;Class&#xFF0C;&#x5E76;&#x751F;&#x6210;&#x65B0;&#x7684;Subclass&#x3002;</p>
-<p>&#x7531;&#x4E8E;&#x8FD9;&#x7C7B;&#x8BED;&#x8A00;&#x4E25;&#x683C;&#x533A;&#x5206;&#x7C7B;&#x548C;&#x5B9E;&#x4F8B;&#xFF0C;&#x7EE7;&#x627F;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x7C7B;&#x578B;&#x7684;&#x6269;&#x5C55;&#x3002;&#x4F46;&#x662F;&#xFF0C;JavaScript&#x7531;&#x4E8E;&#x91C7;&#x7528;&#x539F;&#x578B;&#x7EE7;&#x627F;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x6269;&#x5C55;&#x4E00;&#x4E2A;Class&#xFF0C;&#x56E0;&#x4E3A;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728;Class&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x3002;</p>
-<p>&#x4F46;&#x662F;&#x529E;&#x6CD5;&#x8FD8;&#x662F;&#x6709;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x5148;&#x56DE;&#x987E;<code>Student</code>&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Student</span>(<span class="hljs-params">props</span>) </span>{
-    <span class="hljs-keyword">this</span>.name = props.name || <span class="hljs-string">&apos;Unnamed&apos;</span>;
+                                <h1 id="&#x5F02;&#x5E38;&#x5904;&#x7406;">&#x5F02;&#x5E38;&#x5904;&#x7406;</h1>
+<p>&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x901A;&#x5E38;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x62BD;&#x8C61;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x903B;&#x8F91;try ... catch ... finally&#xFF0C;JavaScript&#x4E5F;&#x4E0D;&#x4F8B;&#x5916;&#x3002;</p>
+<h3 id="try--catch--finally">try ... catch ... finally</h3>
+<p>&#x4F7F;&#x7528;try ... catch ... finally&#x5904;&#x7406;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> r1, r2, s = <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">try</span> {
+    r1 = s.length; <span class="hljs-comment">// &#x6B64;&#x5904;&#x5E94;&#x4EA7;&#x751F;&#x9519;&#x8BEF;</span>
+    r2 = <span class="hljs-number">100</span>; <span class="hljs-comment">// &#x8BE5;&#x8BED;&#x53E5;&#x4E0D;&#x4F1A;&#x6267;&#x884C;</span>
+} <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x51FA;&#x9519;&#x4E86;&#xFF1A;&apos;</span> + e);
+} <span class="hljs-keyword">finally</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;finally&apos;</span>);
 }
-
-Student.prototype.hello = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    alert(<span class="hljs-string">&apos;Hello, &apos;</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">&apos;!&apos;</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;r1 = &apos;</span> + r1); <span class="hljs-comment">// r1&#x5E94;&#x4E3A;undefined</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;r2 = &apos;</span> + r2); <span class="hljs-comment">// r2&#x5E94;&#x4E3A;undefined</span>
+</code></pre>
+<h3 id="&#x9519;&#x8BEF;&#x7C7B;&#x578B;">&#x9519;&#x8BEF;&#x7C7B;&#x578B;</h3>
+<p>JavaScript&#x6709;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;<code>Error</code>&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x9519;&#x8BEF;&#xFF0C;&#x8FD8;&#x6709;&#x4ECE;<code>Error</code>&#x6D3E;&#x751F;&#x7684;<code>TypeError</code>&#x3001;<code>ReferenceError</code>&#x7B49;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>catch(e)</code>&#x6355;&#x83B7;&#x7684;&#x53D8;&#x91CF;<code>e</code>&#x8BBF;&#x95EE;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">try</span> {
+    ...
+} <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-keyword">if</span> (e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">TypeError</span>) {
+        alert(<span class="hljs-string">&apos;Type error!&apos;</span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>) {
+        alert(e.message);
+    } <span class="hljs-keyword">else</span> {
+        alert(<span class="hljs-string">&apos;Error: &apos;</span> + e);
+    }
 }
 </code></pre>
-<p>&#x4EE5;&#x53CA;<code>Student</code>&#x7684;&#x539F;&#x578B;&#x94FE;&#xFF1A;</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1034288810160288/l" alt="js-proto"></p>
-<p>&#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x57FA;&#x4E8E;<code>Student</code>&#x6269;&#x5C55;&#x51FA;<code>PrimaryStudent</code>&#xFF0C;&#x53EF;&#x4EE5;&#x5148;&#x5B9A;&#x4E49;&#x51FA;<code>PrimaryStudent</code>&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PrimaryStudent</span>(<span class="hljs-params">props</span>) </span>{
-    <span class="hljs-comment">// &#x8C03;&#x7528;Student&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7ED1;&#x5B9A;this&#x53D8;&#x91CF;:</span>
-    Student.call(<span class="hljs-keyword">this</span>, props);
-    <span class="hljs-keyword">this</span>.grade = props.grade || <span class="hljs-number">1</span>;
+<p>&#x4F7F;&#x7528;&#x53D8;&#x91CF;<code>e</code>&#x662F;&#x4E00;&#x4E2A;&#x4E60;&#x60EF;&#x7528;&#x6CD5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4EE5;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x540D;&#x547D;&#x540D;&#xFF0C;&#x5982;<code>catch(ex)</code>&#x3002;</p>
+<h3 id="&#x629B;&#x51FA;&#x9519;&#x8BEF;">&#x629B;&#x51FA;&#x9519;&#x8BEF;</h3>
+<p>&#x7A0B;&#x5E8F;&#x4E5F;&#x53EF;&#x4EE5;&#x4E3B;&#x52A8;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x8BA9;&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x76F4;&#x63A5;&#x8DF3;&#x8F6C;&#x5230;<code>catch</code>&#x5757;&#x3002;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x4F7F;&#x7528;<code>throw</code>&#x8BED;&#x53E5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> r, n, s;
+<span class="hljs-keyword">try</span> {
+    s = prompt(<span class="hljs-string">&apos;&#x8BF7;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&apos;</span>);
+    n = <span class="hljs-built_in">parseInt</span>(s);
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(n)) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x8F93;&#x5165;&#x9519;&#x8BEF;&apos;</span>);
+    }
+    <span class="hljs-comment">// &#x8BA1;&#x7B97;&#x5E73;&#x65B9;:</span>
+    r = n * n;
+    <span class="hljs-built_in">console</span>.log(n + <span class="hljs-string">&apos; * &apos;</span> + n + <span class="hljs-string">&apos; = &apos;</span> + r);
+} <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x51FA;&#x9519;&#x4E86;&#xFF1A;&apos;</span> + e);
 }
 </code></pre>
-<p>&#x4F46;&#x662F;&#xFF0C;&#x8C03;&#x7528;&#x4E86;<code>Student</code>&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0D;&#x7B49;&#x4E8E;&#x7EE7;&#x627F;&#x4E86;<code>Student</code>&#xFF0C;<code>PrimaryStudent</code>&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x662F;&#xFF1A;</p>
-<pre><code class="lang-shell">new PrimaryStudent() ----&gt; PrimaryStudent.prototype ----&gt; Object.prototype ----&gt; null
-</code></pre>
-<p>&#x5FC5;&#x987B;&#x60F3;&#x529E;&#x6CD5;&#x628A;&#x539F;&#x578B;&#x94FE;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> PrimaryStudent() ----&gt; PrimaryStudent.prototype ----&gt; Student.prototype ----&gt; <span class="hljs-built_in">Object</span>.prototype ----&gt; <span class="hljs-literal">null</span>
-</code></pre>
-<p>&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x501F;&#x52A9;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x5BF9;&#x8C61;&#x6765;&#x5B9E;&#x73B0;&#x6B63;&#x786E;&#x7684;&#x539F;&#x578B;&#x94FE;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E2D;&#x95F4;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x8981;&#x6307;&#x5411;<code>Student.prototype</code>&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x53C2;&#x8003;&#x9053;&#x7237;&#xFF08;&#x5C31;&#x662F;&#x53D1;&#x660E;JSON&#x7684;&#x90A3;&#x4E2A;&#x9053;&#x683C;&#x62C9;&#x65AF;&#xFF09;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E2D;&#x95F4;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x7A7A;&#x51FD;&#x6570;<code>F</code>&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// PrimaryStudent&#x6784;&#x9020;&#x51FD;&#x6570;:</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PrimaryStudent</span>(<span class="hljs-params">props</span>) </span>{
-    Student.call(<span class="hljs-keyword">this</span>, props);
-    <span class="hljs-keyword">this</span>.grade = props.grade || <span class="hljs-number">1</span>;
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;JavaScript&#x5141;&#x8BB8;&#x629B;&#x51FA;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6700;&#x597D;&#x8FD8;&#x662F;&#x629B;&#x51FA;&#x4E00;&#x4E2A;Error&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x7528;catch&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x7F16;&#x5199;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> n = <span class="hljs-number">0</span>, s;
+<span class="hljs-keyword">try</span> {
+    n = s.length;
+} <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-built_in">console</span>.log(e);
 }
-
-<span class="hljs-comment">// &#x7A7A;&#x51FD;&#x6570;F:</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>{
-}
-
-<span class="hljs-comment">// &#x628A;F&#x7684;&#x539F;&#x578B;&#x6307;&#x5411;Student.prototype:</span>
-F.prototype = Student.prototype;
-
-<span class="hljs-comment">// &#x628A;PrimaryStudent&#x7684;&#x539F;&#x578B;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x65B0;&#x7684;F&#x5BF9;&#x8C61;&#xFF0C;F&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x6B63;&#x597D;&#x6307;&#x5411;Student.prototype:</span>
-PrimaryStudent.prototype = <span class="hljs-keyword">new</span> F();
-
-<span class="hljs-comment">// &#x628A;PrimaryStudent&#x539F;&#x578B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4FEE;&#x590D;&#x4E3A;PrimaryStudent:</span>
-PrimaryStudent.prototype.constructor = PrimaryStudent;
-
-<span class="hljs-comment">// &#x7EE7;&#x7EED;&#x5728;PrimaryStudent&#x539F;&#x578B;&#xFF08;&#x5C31;&#x662F;new F()&#x5BF9;&#x8C61;&#xFF09;&#x4E0A;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#xFF1A;</span>
-PrimaryStudent.prototype.getGrade = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.grade;
-};
-
-<span class="hljs-comment">// &#x521B;&#x5EFA;xiaoming:</span>
-<span class="hljs-keyword">var</span> xiaoming = <span class="hljs-keyword">new</span> PrimaryStudent({
-    name: <span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,
-    grade: <span class="hljs-number">2</span>
-});
-xiaoming.name; <span class="hljs-comment">// &apos;&#x5C0F;&#x660E;&apos;</span>
-xiaoming.grade; <span class="hljs-comment">// 2</span>
-
-<span class="hljs-comment">// &#x9A8C;&#x8BC1;&#x539F;&#x578B;:</span>
-xiaoming.__proto__ === PrimaryStudent.prototype; <span class="hljs-comment">// true</span>
-xiaoming.__proto__.__proto__ === Student.prototype; <span class="hljs-comment">// true</span>
-
-<span class="hljs-comment">// &#x9A8C;&#x8BC1;&#x7EE7;&#x627F;&#x5173;&#x7CFB;:</span>
-xiaoming <span class="hljs-keyword">instanceof</span> PrimaryStudent; <span class="hljs-comment">// true</span>
-xiaoming <span class="hljs-keyword">instanceof</span> Student; <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(n);
 </code></pre>
-<p>&#x7528;&#x4E00;&#x5F20;&#x56FE;&#x6765;&#x8868;&#x793A;&#x65B0;&#x7684;&#x539F;&#x578B;&#x94FE;&#xFF1A;</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1034288859918112/l" alt="js-proto-extend"></p>
-<p>&#x6CE8;&#x610F;&#xFF0C;&#x51FD;&#x6570;<code>F</code>&#x4EC5;&#x7528;&#x4E8E;&#x6865;&#x63A5;&#xFF0C;&#x6211;&#x4EEC;&#x4EC5;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;<code>new F()</code>&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x4E14;&#xFF0C;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#x539F;&#x6709;&#x7684;<code>Student</code>&#x5B9A;&#x4E49;&#x7684;&#x539F;&#x578B;&#x94FE;&#x3002;</p>
+<p>&#x54EA;&#x6015;&#x4EC5;&#x4EC5;&#x628A;&#x9519;&#x8BEF;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x4E5F;&#x4E0D;&#x8981;&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x5E72;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> n = <span class="hljs-number">0</span>, s;
+<span class="hljs-keyword">try</span> {
+    n = s.length;
+} <span class="hljs-keyword">catch</span> (e) {
+}
+<span class="hljs-built_in">console</span>.log(n);
+</code></pre>
+<p>&#x56E0;&#x4E3A;catch&#x5230;&#x9519;&#x8BEF;&#x5374;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#xFF0C;&#x5C31;&#x4E0D;&#x77E5;&#x9053;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x5230;&#x5E95;&#x6709;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x5904;&#x7406;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x8BF7;&#x4E0D;&#x8981;&#x7B80;&#x5355;&#x7C97;&#x66B4;&#x5730;&#x7528;<code>alert()</code>&#x628A;&#x9519;&#x8BEF;&#x663E;&#x793A;&#x7ED9;&#x7528;&#x6237;&#x3002;&#x6559;&#x7A0B;&#x7684;&#x4EE3;&#x7801;&#x4F7F;&#x7528;<code>alert()</code>&#x662F;&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x6F14;&#x793A;&#x3002;</p>
 
                                 
                                 </section>
@@ -932,12 +928,12 @@ xiaoming <span class="hljs-keyword">instanceof</span> Student; <span class="hljs
 
             
                 
-                <a href="创建对象.html" class="navigation navigation-prev " aria-label="Previous page: 创建对象">
+                <a href="class继承.html" class="navigation navigation-prev " aria-label="Previous page: class继承">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="class继承.html" class="navigation navigation-next " aria-label="Next page: class继承">
+                <a href="../浏览器/浏览器.html" class="navigation navigation-next " aria-label="Next page: 浏览器">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -948,7 +944,7 @@ xiaoming <span class="hljs-keyword">instanceof</span> Student; <span class="hljs
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"原型继承","level":"1.2.6.2","depth":3,"next":{"title":"class继承","level":"1.2.6.3","depth":3,"path":"基础/class继承.md","ref":"基础/class继承.md","articles":[]},"previous":{"title":"创建对象","level":"1.2.6.1","depth":3,"path":"基础/创建对象.md","ref":"基础/创建对象.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","-search","search-pro","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search-pro":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"qq":true,"all":["weibo","qq","qzone","weibo","instapaper"],"facebook":true,"weibo":true,"instapaper":false,"twitter":true,"vk":false,"google":false,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/原型继承.md","mtime":"2019-09-03T01:01:59.395Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-03T07:29:48.231Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"异常处理","level":"1.2.7","depth":2,"next":{"title":"浏览器","level":"1.3","depth":1,"path":"浏览器/浏览器.md","ref":"浏览器/浏览器.md","articles":[{"title":"浏览器对象","level":"1.3.1","depth":2,"path":"浏览器/浏览器对象.md","ref":"浏览器/浏览器对象.md","articles":[]},{"title":"操作DOM","level":"1.3.2","depth":2,"path":"浏览器/操作DOM.md","ref":"浏览器/操作DOM.md","articles":[{"title":"更新DOM","level":"1.3.2.1","depth":3,"path":"浏览器/更新DOM.md","ref":"浏览器/更新DOM.md","articles":[]},{"title":"插入DOM","level":"1.3.2.2","depth":3,"path":"浏览器/插入DOM.md","ref":"浏览器/插入DOM.md","articles":[]},{"title":"删除DOM","level":"1.3.2.3","depth":3,"path":"浏览器/删除DOM.md","ref":"浏览器/删除DOM.md","articles":[]}]},{"title":"操作表单","level":"1.3.3","depth":2,"path":"浏览器/操作表单.md","ref":"浏览器/操作表单.md","articles":[]},{"title":"操作文件","level":"1.3.4","depth":2,"path":"浏览器/操作文件.md","ref":"浏览器/操作文件.md","articles":[]},{"title":"AJAX","level":"1.3.5","depth":2,"path":"浏览器/AJAX.md","ref":"浏览器/AJAX.md","articles":[]},{"title":"Promise","level":"1.3.6","depth":2,"path":"浏览器/Promise.md","ref":"浏览器/Promise.md","articles":[]},{"title":"Canvas","level":"1.3.7","depth":2,"path":"浏览器/Canvas.md","ref":"浏览器/Canvas.md","articles":[]}]},"previous":{"title":"class继承","level":"1.2.6.3","depth":3,"path":"基础/class继承.md","ref":"基础/class继承.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","-search","search-pro","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search-pro":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"qq":true,"all":["weibo","qq","qzone","weibo","instapaper"],"facebook":true,"weibo":true,"instapaper":false,"twitter":true,"vk":false,"google":false,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/异常处理.md","mtime":"2019-09-03T09:59:36.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-03T07:29:48.231Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
