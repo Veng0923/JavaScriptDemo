@@ -16,6 +16,35 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var results = arr.map(pow);  // [1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
+还能带index：
+
+```javascript
+const array = [1,2,3,4];
+array.map(function (value, index) {
+    console.log(index, value);
+});
+/*
+0 1
+1 2
+2 3
+3 4
+*/
+```
+
+更可以带上 array本身：
+
+```javascript
+array.map(function (value, index, array) {
+    console.log(array[index]);
+});
+/**
+1
+2
+3
+4
+*/
+```
+
 ### reduce
 
 再看reduce的用法。Array的`reduce()`把一个函数作用在这个`Array`的`[x1, x2, x3...]`上，这个函数必须接收两个参数，`reduce()`把结果继续和序列的下一个元素做累积计算，其效果就是：
