@@ -3,15 +3,5 @@
     "author": "Veng",
     "description": "javaScript的学习笔记",
     "language": "zh-hans",
-    "plugins": ["lunr", "-search", "search-pro", "pageview-count", "chapter-fold", "back-to-top-button", "code"],
-    "pluginsConfig": {
-        "sharing": {
-            "qq": true,
-            "qzone": true,
-            "weibo": true,
-            "all": [
-                 "weibo","qq", "qzone"
-            ]
-        }
-    }
+    "plugins": ["lunr", "pageview-count", "chapter-fold", "back-to-top-button", "code"]
 }
