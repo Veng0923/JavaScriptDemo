@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Date · JavaScript学习</title>
+        <title>数值 · JavaScript学习</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Proxy.html" />
+    <link rel="next" href="字符串.html" />
     
     
-    <link rel="prev" href="SetMap.html" />
+    <link rel="prev" href="let和const命令.html" />
     
 
     </head>
@@ -158,7 +158,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="数值.html">
+        <li class="chapter active" data-level="1.2.3" data-path="数值.html">
             
                 <a href="数值.html">
             
@@ -405,7 +405,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.8.2" data-path="Date.html">
+        <li class="chapter " data-level="1.2.8.2" data-path="Date.html">
             
                 <a href="Date.html">
             
@@ -897,7 +897,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Date</a>
+        <a href=".." >数值</a>
     </h1>
 </div>
 
@@ -912,49 +912,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="date">Date</h1>
-<p>&#x5728;JavaScript&#x4E2D;&#xFF0C;<code>Date</code>&#x5BF9;&#x8C61;&#x7528;&#x6765;&#x8868;&#x793A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x3002;</p>
-<p>&#x8981;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x7528;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<span class="hljs-comment">//  &#x6CE8;&#x610F;&#x8981;new &#x5426;&#x5219;&#x8C03;&#x7528;&#x4E0D;&#x4E86;&#x65B9;&#x6CD5;</span>
-<span class="hljs-built_in">console</span>.log(date.toString()); <span class="hljs-comment">// Sat Aug 31 2019 19:09:13 GMT+0800 (GMT+08:00)</span>
-<span class="hljs-built_in">console</span>.log(date.getFullYear()); <span class="hljs-comment">// 2019, &#x5E74;&#x4EFD;</span>
-<span class="hljs-built_in">console</span>.log(date.getMonth()); <span class="hljs-comment">// 7,&#x6708;&#x4EFD;&#xFF0C;&#x6CE8;&#x610F;&#x6708;&#x4EFD;&#x8303;&#x56F4;&#x662F;0~11&#xFF0C;7&#x8868;&#x793A;&#x516B;&#x6708;</span>
-<span class="hljs-built_in">console</span>.log(date.getDate()); <span class="hljs-comment">// 31&#x53F7;</span>
-<span class="hljs-built_in">console</span>.log(date.getDay()); <span class="hljs-comment">// 6,&#x661F;&#x671F;&#x516D;</span>
-<span class="hljs-built_in">console</span>.log(date.getHours()); <span class="hljs-comment">// 18,&#x65F6;</span>
-<span class="hljs-built_in">console</span>.log(date.getMinutes()); <span class="hljs-comment">// 52,&#x5206;</span>
-<span class="hljs-built_in">console</span>.log(date.getSeconds()); <span class="hljs-comment">// 24,&#x79D2;</span>
-<span class="hljs-built_in">console</span>.log(date.getMilliseconds()); <span class="hljs-comment">// 202,&#x6BEB;&#x79D2;</span>
-<span class="hljs-built_in">console</span>.log(date.getTime()); <span class="hljs-comment">//1567248744202 &#x65F6;&#x95F4;&#x6233;</span>
+                                <h1 id="&#x6570;&#x503C;">&#x6570;&#x503C;</h1>
+<h3 id="&#x4E8C;&#x8FDB;&#x5236;&#x4E0E;&#x516B;&#x8FDB;&#x5236;&#x8868;&#x793A;">&#x4E8C;&#x8FDB;&#x5236;&#x4E0E;&#x516B;&#x8FDB;&#x5236;&#x8868;&#x793A;</h3>
+<p>ES6 &#x63D0;&#x4F9B;&#x4E86;&#x4E8C;&#x8FDB;&#x5236;&#x548C;&#x516B;&#x8FDB;&#x5236;&#x6570;&#x503C;&#x7684;&#x65B0;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5206;&#x522B;&#x7528;&#x524D;&#x7F00;<code>0b</code>&#xFF08;&#x6216;<code>0B</code>&#xFF09;&#x548C;<code>0o</code>&#xFF08;&#x6216;<code>0O</code>&#xFF09;&#x8868;&#x793A;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-number">0b111110111</span> === <span class="hljs-number">503</span> <span class="hljs-comment">// true</span>
+<span class="hljs-number">0o767</span> === <span class="hljs-number">503</span> <span class="hljs-comment">// true</span>
 </code></pre>
-<p>&#x5982;&#x679C;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7684;<code>Date</code>&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;</span>
-<span class="hljs-keyword">const</span> next = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2020</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);
-<span class="hljs-built_in">console</span>.log(next.toString()); <span class="hljs-comment">// Sat Feb 01 2020 01:01:01 GMT+0800 (GMT+08:00)</span>
+<p>&#x5982;&#x679C;&#x8981;&#x5C06;<code>0b</code>&#x548C;<code>0o</code>&#x524D;&#x7F00;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x503C;&#x8F6C;&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#xFF0C;&#x8981;&#x4F7F;&#x7528;<code>Number</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Number</span>(<span class="hljs-string">&apos;0b111&apos;</span>)  <span class="hljs-comment">// 7</span>
+<span class="hljs-built_in">Number</span>(<span class="hljs-string">&apos;0o10&apos;</span>)  <span class="hljs-comment">// 8</span>
 </code></pre>
-<p>&#x66F4;&#x6709;&#x610F;&#x601D;&#x7684;&#x662F;&#xFF0C;&#x8FD8;&#x80FD;&#x591F;&#x7528;&#x6765;&#x81EA;&#x52A8;&#x66F4;&#x6B63;&#x65F6;&#x95F4;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// &#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x65F6;&#x95F4; &#x4F1A;&#x81EA;&#x52A8;&#x6821;&#x6B63;</span>
-<span class="hljs-keyword">const</span> errorDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2020</span>,<span class="hljs-number">1</span>,<span class="hljs-number">55</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);
-<span class="hljs-built_in">console</span>.log(errorDate.toString()); <span class="hljs-comment">// Thu Mar 26 2020 01:01:01 GMT+0800 (GMT+08:00)</span>
+<h3 id="parseintparsefloat">parseInt,parseFloat</h3>
+<p>ES6 &#x5C06;&#x5168;&#x5C40;&#x65B9;&#x6CD5;<code>parseInt()</code>&#x548C;<code>parseFloat()</code>&#xFF0C;&#x79FB;&#x690D;&#x5230;<code>Number</code>&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#xFF0C;&#x884C;&#x4E3A;&#x5B8C;&#x5168;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES5&#x7684;&#x5199;&#x6CD5;</span>
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&apos;12.34&apos;</span>) <span class="hljs-comment">// 12</span>
+<span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">&apos;123.45#&apos;</span>) <span class="hljs-comment">// 123.45</span>
+
+<span class="hljs-comment">// ES6&#x7684;&#x5199;&#x6CD5;</span>
+<span class="hljs-built_in">Number</span>.parseInt(<span class="hljs-string">&apos;12.34&apos;</span>) <span class="hljs-comment">// 12</span>
+<span class="hljs-built_in">Number</span>.parseFloat(<span class="hljs-string">&apos;123.45#&apos;</span>) <span class="hljs-comment">// 123.45</span>
 </code></pre>
-<p>&#x4E00;&#x5B9A;&#x8981;&#x6CE8;&#x610F;&#x6708;&#x4EFD;&#x7684;&#x95EE;&#x9898;&#xFF0C;0-11&#x3002;</p>
-<p>&#x7B2C;&#x4E8C;&#x79CD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x89E3;&#x6790;&#x4E00;&#x4E2A;&#x7B26;&#x5408;<a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a>&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> isoDate = <span class="hljs-built_in">Date</span>.parse(<span class="hljs-string">&apos;2020-09-23T22:49:22.875+08:00&apos;</span>);
-<span class="hljs-built_in">console</span>.log(isoDate.toString()); <span class="hljs-comment">// 1600872562875</span>
+<p>&#x8FD9;&#x6837;&#x505A;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x662F;&#x9010;&#x6B65;&#x51CF;&#x5C11;&#x5168;&#x5C40;&#x6027;&#x65B9;&#x6CD5;&#xFF0C;&#x4F7F;&#x5F97;&#x8BED;&#x8A00;&#x9010;&#x6B65;&#x6A21;&#x5757;&#x5316;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Number</span>.parseInt === <span class="hljs-built_in">parseInt</span> <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">Number</span>.parseFloat === <span class="hljs-built_in">parseFloat</span> <span class="hljs-comment">// true</span>
 </code></pre>
-<p>&#x4F46;&#x5B83;&#x8FD4;&#x56DE;&#x7684;&#x4E0D;&#x662F;<code>Date</code>&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6233;&#x3002;&#x4E0D;&#x8FC7;&#x6709;&#x65F6;&#x95F4;&#x6233;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x628A;&#x5B83;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;<code>Date</code>&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> timeStampDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1600872562875</span>);
-<span class="hljs-built_in">console</span>.log(timeStampDate.toString()); <span class="hljs-comment">// Wed Sep 23 2020 22:49:22 GMT+0800 (GMT+08:00)</span>
+<h3 id="isinteger">isInteger</h3>
+<p><code>Number.isInteger()</code>&#x7528;&#x6765;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#x662F;&#x5426;&#x4E3A;&#x6574;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-number">25</span>) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-number">25.1</span>) <span class="hljs-comment">// false</span>
 </code></pre>
-<h3 id="&#x65F6;&#x533A;">&#x65F6;&#x533A;</h3>
-<p><code>Date</code>&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x7684;&#x65F6;&#x95F4;&#x603B;&#x662F;&#x6309;&#x6D4F;&#x89C8;&#x5668;&#x6240;&#x5728;&#x65F6;&#x533A;&#x663E;&#x793A;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x65E2;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x672C;&#x5730;&#x65F6;&#x95F4;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x8C03;&#x6574;&#x540E;&#x7684;UTC&#x65F6;&#x95F4;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> localDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
-<span class="hljs-comment">// &#x83B7;&#x53D6;&#x672C;&#x5730;&#x65F6;&#x95F4;</span>
-<span class="hljs-built_in">console</span>.log(localDate.toLocaleString()); <span class="hljs-comment">// 2019-8-31 19:21:54</span>
-<span class="hljs-comment">// &#x83B7;&#x53D6; UTC &#x65F6;&#x95F4; &#x76F8;&#x5DEE;8&#x5C0F;&#x65F6;</span>
-<span class="hljs-built_in">console</span>.log(localDate.toUTCString()); <span class="hljs-comment">// Sat, 31 Aug 2019 11:21:54 GMT</span>
-<span class="hljs-built_in">console</span>.log(localDate.toLocaleDateString()); <span class="hljs-comment">// 2019-8-31</span>
-<span class="hljs-built_in">console</span>.log(localDate.toLocaleTimeString()); <span class="hljs-comment">// 19:21:54</span>
+<p>JavaScript &#x5185;&#x90E8;&#xFF0C;&#x6574;&#x6570;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#x91C7;&#x7528;&#x7684;&#x662F;&#x540C;&#x6837;&#x7684;&#x50A8;&#x5B58;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5; 25 &#x548C; 25.0 &#x88AB;&#x89C6;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x503C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-number">25</span>) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-number">25.0</span>) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x6570;&#x503C;&#xFF0C;<code>Number.isInteger</code>&#x8FD4;&#x56DE;<code>false</code>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Number</span>.isInteger() <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-literal">null</span>) <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-string">&apos;15&apos;</span>) <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-literal">true</span>) <span class="hljs-comment">// false</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x7531;&#x4E8E; JavaScript &#x91C7;&#x7528; IEEE 754 &#x6807;&#x51C6;&#xFF0C;&#x6570;&#x503C;&#x5B58;&#x50A8;&#x4E3A;64&#x4F4D;&#x53CC;&#x7CBE;&#x5EA6;&#x683C;&#x5F0F;&#xFF0C;&#x6570;&#x503C;&#x7CBE;&#x5EA6;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x8FBE;&#x5230; 53 &#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#xFF08;1 &#x4E2A;&#x9690;&#x85CF;&#x4F4D;&#x4E0E; 52 &#x4E2A;&#x6709;&#x6548;&#x4F4D;&#xFF09;&#x3002;&#x5982;&#x679C;&#x6570;&#x503C;&#x7684;&#x7CBE;&#x5EA6;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x9650;&#x5EA6;&#xFF0C;&#x7B2C;54&#x4F4D;&#x53CA;&#x540E;&#x9762;&#x7684;&#x4F4D;&#x5C31;&#x4F1A;&#x88AB;&#x4E22;&#x5F03;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>Number.isInteger</code>&#x53EF;&#x80FD;&#x4F1A;&#x8BEF;&#x5224;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Number</span>.isInteger(<span class="hljs-number">3.0000000000000002</span>) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>Number.isInteger</code>&#x7684;&#x53C2;&#x6570;&#x660E;&#x660E;&#x4E0D;&#x662F;&#x6574;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#x3002;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x5C0F;&#x6570;&#x7684;&#x7CBE;&#x5EA6;&#x8FBE;&#x5230;&#x4E86;&#x5C0F;&#x6570;&#x70B9;&#x540E;16&#x4E2A;&#x5341;&#x8FDB;&#x5236;&#x4F4D;&#xFF0C;&#x8F6C;&#x6210;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x8D85;&#x8FC7;&#x4E86;53&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#xFF0C;&#x5BFC;&#x81F4;&#x6700;&#x540E;&#x7684;&#x90A3;&#x4E2A;<code>2</code>&#x88AB;&#x4E22;&#x5F03;&#x4E86;&#x3002;</p>
+<p>&#x603B;&#x4E4B;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x6570;&#x636E;&#x7CBE;&#x5EA6;&#x7684;&#x8981;&#x6C42;&#x8F83;&#x9AD8;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>Number.isInteger()</code>&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#x662F;&#x5426;&#x4E3A;&#x6574;&#x6570;&#x3002;</p>
+<h3 id="mathtrunc">Math.trunc()</h3>
+<p><code>Math.trunc</code>&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x53BB;&#x9664;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x5C0F;&#x6570;&#x90E8;&#x5206;&#xFF0C;&#x8FD4;&#x56DE;&#x6574;&#x6570;&#x90E8;&#x5206;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Math</span>.trunc(<span class="hljs-number">4.1</span>) <span class="hljs-comment">// 4</span>
+<span class="hljs-built_in">Math</span>.trunc(<span class="hljs-number">4.9</span>) <span class="hljs-comment">// 4</span>
+<span class="hljs-built_in">Math</span>.trunc(<span class="hljs-number">-4.1</span>) <span class="hljs-comment">// -4</span>
+<span class="hljs-built_in">Math</span>.trunc(<span class="hljs-number">-4.9</span>) <span class="hljs-comment">// -4</span>
+<span class="hljs-built_in">Math</span>.trunc(<span class="hljs-number">-0.1234</span>) <span class="hljs-comment">// -0</span>
+</code></pre>
+<h3 id="mathhypot">Math.hypot()</h3>
+<p><code>Math.hypot</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x53C2;&#x6570;&#x7684;&#x5E73;&#x65B9;&#x548C;&#x7684;&#x5E73;&#x65B9;&#x6839;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Math</span>.hypot(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>);        <span class="hljs-comment">// 5</span>
+<span class="hljs-built_in">Math</span>.hypot(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);     <span class="hljs-comment">// 7.0710678118654755</span>
+<span class="hljs-built_in">Math</span>.hypot();            <span class="hljs-comment">// 0</span>
+<span class="hljs-built_in">Math</span>.hypot(<span class="hljs-literal">NaN</span>);         <span class="hljs-comment">// NaN</span>
+<span class="hljs-built_in">Math</span>.hypot(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-string">&apos;foo&apos;</span>); <span class="hljs-comment">// NaN</span>
+<span class="hljs-built_in">Math</span>.hypot(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-string">&apos;5&apos;</span>);   <span class="hljs-comment">// 7.0710678118654755</span>
+<span class="hljs-built_in">Math</span>.hypot(<span class="hljs-number">-3</span>);          <span class="hljs-comment">// 3</span>
+</code></pre>
+<h3 id="&#x6307;&#x6570;&#x8FD0;&#x7B97;">&#x6307;&#x6570;&#x8FD0;&#x7B97;</h3>
+<p>ES2016 &#x65B0;&#x589E;&#x4E86;&#x4E00;&#x4E2A;&#x6307;&#x6570;&#x8FD0;&#x7B97;&#x7B26;&#xFF08;<code>**</code>&#xFF09;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-number">2</span> ** <span class="hljs-number">2</span> <span class="hljs-comment">// 4</span>
+<span class="hljs-number">2</span> ** <span class="hljs-number">3</span> <span class="hljs-comment">// 8</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x8FD0;&#x7B97;&#x7B26;&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x70B9;&#x662F;&#x53F3;&#x7ED3;&#x5408;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5E38;&#x89C1;&#x7684;&#x5DE6;&#x7ED3;&#x5408;&#x3002;&#x591A;&#x4E2A;&#x6307;&#x6570;&#x8FD0;&#x7B97;&#x7B26;&#x8FDE;&#x7528;&#x65F6;&#xFF0C;&#x662F;&#x4ECE;&#x6700;&#x53F3;&#x8FB9;&#x5F00;&#x59CB;&#x8BA1;&#x7B97;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x76F8;&#x5F53;&#x4E8E; 2 ** (3 ** 2)</span>
+<span class="hljs-number">2</span> ** <span class="hljs-number">3</span> ** <span class="hljs-number">2</span>
+<span class="hljs-comment">// 512</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x9996;&#x5148;&#x8BA1;&#x7B97;&#x7684;&#x662F;&#x7B2C;&#x4E8C;&#x4E2A;&#x6307;&#x6570;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x3002;</p>
+<p>&#x6307;&#x6570;&#x8FD0;&#x7B97;&#x7B26;&#x53EF;&#x4EE5;&#x4E0E;&#x7B49;&#x53F7;&#x7ED3;&#x5408;&#xFF0C;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8D4B;&#x503C;&#x8FD0;&#x7B97;&#x7B26;&#xFF08;<code>**=</code>&#xFF09;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-number">1.5</span>;
+a **= <span class="hljs-number">2</span>;
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E; a = a * a;</span>
+
+<span class="hljs-keyword">let</span> b = <span class="hljs-number">4</span>;
+b **= <span class="hljs-number">3</span>;
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E; b = b * b * b;</span>
 </code></pre>
 
                                 
@@ -983,12 +1021,12 @@
 
             
                 
-                <a href="SetMap.html" class="navigation navigation-prev " aria-label="Previous page: Set,Map">
+                <a href="let和const命令.html" class="navigation navigation-prev " aria-label="Previous page: let和const命令">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Proxy.html" class="navigation navigation-next " aria-label="Next page: Proxy">
+                <a href="字符串.html" class="navigation navigation-next " aria-label="Next page: 字符串">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -999,7 +1037,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Date","level":"1.2.8.2","depth":3,"next":{"title":"Proxy","level":"1.2.8.3","depth":3,"path":"基础/Proxy.md","ref":"基础/Proxy.md","articles":[]},"previous":{"title":"Set,Map","level":"1.2.8.1","depth":3,"path":"基础/SetMap.md","ref":"基础/SetMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/Date.md","mtime":"2019-09-04T01:04:12.837Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T05:37:19.043Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数值","level":"1.2.3","depth":2,"next":{"title":"字符串","level":"1.2.4","depth":2,"path":"基础/字符串.md","ref":"基础/字符串.md","articles":[]},"previous":{"title":"let和const命令","level":"1.2.2","depth":2,"path":"基础/let和const命令.md","ref":"基础/let和const命令.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/数值.md","mtime":"2019-09-04T05:56:11.906Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T05:37:19.043Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

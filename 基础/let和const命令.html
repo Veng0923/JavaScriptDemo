@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Date · JavaScript学习</title>
+        <title>let和const命令 · JavaScript学习</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Proxy.html" />
+    <link rel="next" href="数值.html" />
     
     
-    <link rel="prev" href="SetMap.html" />
+    <link rel="prev" href="变量.html" />
     
 
     </head>
@@ -145,7 +145,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="let和const命令.html">
+        <li class="chapter active" data-level="1.2.2" data-path="let和const命令.html">
             
                 <a href="let和const命令.html">
             
@@ -405,7 +405,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.8.2" data-path="Date.html">
+        <li class="chapter " data-level="1.2.8.2" data-path="Date.html">
             
                 <a href="Date.html">
             
@@ -897,7 +897,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Date</a>
+        <a href=".." >let和const命令</a>
     </h1>
 </div>
 
@@ -912,50 +912,79 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="date">Date</h1>
-<p>&#x5728;JavaScript&#x4E2D;&#xFF0C;<code>Date</code>&#x5BF9;&#x8C61;&#x7528;&#x6765;&#x8868;&#x793A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x3002;</p>
-<p>&#x8981;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x7528;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();<span class="hljs-comment">//  &#x6CE8;&#x610F;&#x8981;new &#x5426;&#x5219;&#x8C03;&#x7528;&#x4E0D;&#x4E86;&#x65B9;&#x6CD5;</span>
-<span class="hljs-built_in">console</span>.log(date.toString()); <span class="hljs-comment">// Sat Aug 31 2019 19:09:13 GMT+0800 (GMT+08:00)</span>
-<span class="hljs-built_in">console</span>.log(date.getFullYear()); <span class="hljs-comment">// 2019, &#x5E74;&#x4EFD;</span>
-<span class="hljs-built_in">console</span>.log(date.getMonth()); <span class="hljs-comment">// 7,&#x6708;&#x4EFD;&#xFF0C;&#x6CE8;&#x610F;&#x6708;&#x4EFD;&#x8303;&#x56F4;&#x662F;0~11&#xFF0C;7&#x8868;&#x793A;&#x516B;&#x6708;</span>
-<span class="hljs-built_in">console</span>.log(date.getDate()); <span class="hljs-comment">// 31&#x53F7;</span>
-<span class="hljs-built_in">console</span>.log(date.getDay()); <span class="hljs-comment">// 6,&#x661F;&#x671F;&#x516D;</span>
-<span class="hljs-built_in">console</span>.log(date.getHours()); <span class="hljs-comment">// 18,&#x65F6;</span>
-<span class="hljs-built_in">console</span>.log(date.getMinutes()); <span class="hljs-comment">// 52,&#x5206;</span>
-<span class="hljs-built_in">console</span>.log(date.getSeconds()); <span class="hljs-comment">// 24,&#x79D2;</span>
-<span class="hljs-built_in">console</span>.log(date.getMilliseconds()); <span class="hljs-comment">// 202,&#x6BEB;&#x79D2;</span>
-<span class="hljs-built_in">console</span>.log(date.getTime()); <span class="hljs-comment">//1567248744202 &#x65F6;&#x95F4;&#x6233;</span>
+                                <h1 id="let&#x548C;const&#x547D;&#x4EE4;">let&#x548C;const&#x547D;&#x4EE4;</h1>
+<h3 id="let&#x547D;&#x4EE4;">let&#x547D;&#x4EE4;</h3>
+<p>ES6 &#x65B0;&#x589E;&#x4E86;<code>let</code>&#x547D;&#x4EE4;&#xFF0C;&#x7528;&#x6765;&#x58F0;&#x660E;&#x53D8;&#x91CF;&#x3002;&#x5B83;&#x7684;&#x7528;&#x6CD5;&#x7C7B;&#x4F3C;&#x4E8E;<code>var</code>&#xFF0C;&#x4F46;&#x662F;&#x6240;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53EA;&#x5728;<code>let</code>&#x547D;&#x4EE4;&#x6240;&#x5728;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x5185;&#x6709;&#x6548;&#x3002;</p>
+<pre><code class="lang-javascript">{
+  <span class="hljs-keyword">let</span> a = <span class="hljs-number">10</span>;
+  <span class="hljs-keyword">var</span> b = <span class="hljs-number">1</span>;
+}
+
+a <span class="hljs-comment">// ReferenceError: a is not defined.</span>
+b <span class="hljs-comment">// 1</span>
 </code></pre>
-<p>&#x5982;&#x679C;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7684;<code>Date</code>&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;</span>
-<span class="hljs-keyword">const</span> next = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2020</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);
-<span class="hljs-built_in">console</span>.log(next.toString()); <span class="hljs-comment">// Sat Feb 01 2020 01:01:01 GMT+0800 (GMT+08:00)</span>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5728;&#x4EE3;&#x7801;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x5206;&#x522B;&#x7528;<code>let</code>&#x548C;<code>var</code>&#x58F0;&#x660E;&#x4E86;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x7136;&#x540E;&#x5728;&#x4EE3;&#x7801;&#x5757;&#x4E4B;&#x5916;&#x8C03;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x7ED3;&#x679C;<code>let</code>&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x62A5;&#x9519;&#xFF0C;<code>var</code>&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x8FD4;&#x56DE;&#x4E86;&#x6B63;&#x786E;&#x7684;&#x503C;&#x3002;&#x8FD9;&#x8868;&#x660E;&#xFF0C;<code>let</code>&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x53EA;&#x5728;&#x5B83;&#x6240;&#x5728;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;<code>for</code>&#x5FAA;&#x73AF;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x522B;&#x4E4B;&#x5904;&#xFF0C;&#x5C31;&#x662F;&#x8BBE;&#x7F6E;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x7684;&#x90A3;&#x90E8;&#x5206;&#x662F;&#x4E00;&#x4E2A;&#x7236;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;&#x5FAA;&#x73AF;&#x4F53;&#x5185;&#x90E8;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5B50;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) {
+  <span class="hljs-keyword">let</span> i = <span class="hljs-string">&apos;abc&apos;</span>;
+  <span class="hljs-built_in">console</span>.log(i);
+}
+<span class="hljs-comment">// abc</span>
+<span class="hljs-comment">// abc</span>
+<span class="hljs-comment">// abc</span>
 </code></pre>
-<p>&#x66F4;&#x6709;&#x610F;&#x601D;&#x7684;&#x662F;&#xFF0C;&#x8FD8;&#x80FD;&#x591F;&#x7528;&#x6765;&#x81EA;&#x52A8;&#x66F4;&#x6B63;&#x65F6;&#x95F4;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// &#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x65F6;&#x95F4; &#x4F1A;&#x81EA;&#x52A8;&#x6821;&#x6B63;</span>
-<span class="hljs-keyword">const</span> errorDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2020</span>,<span class="hljs-number">1</span>,<span class="hljs-number">55</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);
-<span class="hljs-built_in">console</span>.log(errorDate.toString()); <span class="hljs-comment">// Thu Mar 26 2020 01:01:01 GMT+0800 (GMT+08:00)</span>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x6B63;&#x786E;&#x8FD0;&#x884C;&#xFF0C;&#x8F93;&#x51FA;&#x4E86; 3 &#x6B21;<code>abc</code>&#x3002;&#x8FD9;&#x8868;&#x660E;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;<code>i</code>&#x4E0E;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;<code>i</code>&#x4E0D;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6709;&#x5404;&#x81EA;&#x5355;&#x72EC;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<p>&#x8003;&#x8651;&#x5230;&#x73AF;&#x5883;&#x5BFC;&#x81F4;&#x7684;&#x884C;&#x4E3A;&#x5DEE;&#x5F02;&#x592A;&#x5927;&#xFF0C;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x5728;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x786E;&#x5B9E;&#x9700;&#x8981;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x5199;&#x6210;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x90E8;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4F7F;&#x7528;</span>
+{
+  <span class="hljs-keyword">let</span> a = <span class="hljs-string">&apos;secret&apos;</span>;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> a;
+  }
+}
+
+<span class="hljs-comment">// &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x90E8;&#xFF0C;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</span>
+{
+  <span class="hljs-keyword">let</span> a = <span class="hljs-string">&apos;secret&apos;</span>;
+  <span class="hljs-keyword">let</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> a;
+  };
+}
 </code></pre>
-<p>&#x4E00;&#x5B9A;&#x8981;&#x6CE8;&#x610F;&#x6708;&#x4EFD;&#x7684;&#x95EE;&#x9898;&#xFF0C;0-11&#x3002;</p>
-<p>&#x7B2C;&#x4E8C;&#x79CD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x89E3;&#x6790;&#x4E00;&#x4E2A;&#x7B26;&#x5408;<a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a>&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> isoDate = <span class="hljs-built_in">Date</span>.parse(<span class="hljs-string">&apos;2020-09-23T22:49:22.875+08:00&apos;</span>);
-<span class="hljs-built_in">console</span>.log(isoDate.toString()); <span class="hljs-comment">// 1600872562875</span>
+<h3 id="const-&#x547D;&#x4EE4;">const &#x547D;&#x4EE4;</h3>
+<p><font color="red"><code>const</code></font>&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EA;&#x8BFB;&#x7684;&#x5E38;&#x91CF;&#x3002;&#x4E00;&#x65E6;&#x58F0;&#x660E;&#xFF0C;&#x5E38;&#x91CF;&#x7684;&#x503C;&#x5C31;&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> PI = <span class="hljs-number">3.1415</span>;
+PI <span class="hljs-comment">// 3.1415</span>
+
+PI = <span class="hljs-number">3</span>;
+<span class="hljs-comment">// TypeError: Assignment to constant variable.</span>
 </code></pre>
-<p>&#x4F46;&#x5B83;&#x8FD4;&#x56DE;&#x7684;&#x4E0D;&#x662F;<code>Date</code>&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6233;&#x3002;&#x4E0D;&#x8FC7;&#x6709;&#x65F6;&#x95F4;&#x6233;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x628A;&#x5B83;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;<code>Date</code>&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> timeStampDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1600872562875</span>);
-<span class="hljs-built_in">console</span>.log(timeStampDate.toString()); <span class="hljs-comment">// Wed Sep 23 2020 22:49:22 GMT+0800 (GMT+08:00)</span>
+<p><code>const</code>&#x5B9E;&#x9645;&#x4E0A;&#x4FDD;&#x8BC1;&#x7684;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x4E0D;&#x5F97;&#x6539;&#x52A8;&#xFF0C;&#x800C;&#x662F;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x7684;&#x90A3;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;&#x6240;&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x5F97;&#x6539;&#x52A8;&#x3002;&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF08;&#x6570;&#x503C;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x5E03;&#x5C14;&#x503C;&#xFF09;&#xFF0C;&#x503C;&#x5C31;&#x4FDD;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x7684;&#x90A3;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x56E0;&#x6B64;&#x7B49;&#x540C;&#x4E8E;&#x5E38;&#x91CF;&#x3002;&#x4F46;&#x5BF9;&#x4E8E;&#x590D;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x4FDD;&#x5B58;&#x7684;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5B9E;&#x9645;&#x6570;&#x636E;&#x7684;&#x6307;&#x9488;&#xFF0C;<code>const</code>&#x53EA;&#x80FD;&#x4FDD;&#x8BC1;&#x8FD9;&#x4E2A;&#x6307;&#x9488;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF08;&#x5373;&#x603B;&#x662F;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x5730;&#x5740;&#xFF09;&#xFF0C;&#x81F3;&#x4E8E;&#x5B83;&#x6307;&#x5411;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x5C31;&#x5B8C;&#x5168;&#x4E0D;&#x80FD;&#x63A7;&#x5236;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5C06;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x58F0;&#x660E;&#x4E3A;&#x5E38;&#x91CF;&#x5FC5;&#x987B;&#x975E;&#x5E38;&#x5C0F;&#x5FC3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> foo = {};
+
+<span class="hljs-comment">// &#x4E3A; foo &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x6210;&#x529F;</span>
+foo.prop = <span class="hljs-number">123</span>;
+foo.prop <span class="hljs-comment">// 123</span>
+
+<span class="hljs-comment">// &#x5C06; foo &#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;</span>
+foo = {}; <span class="hljs-comment">// TypeError: &quot;foo&quot; is read-only</span>
 </code></pre>
-<h3 id="&#x65F6;&#x533A;">&#x65F6;&#x533A;</h3>
-<p><code>Date</code>&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x7684;&#x65F6;&#x95F4;&#x603B;&#x662F;&#x6309;&#x6D4F;&#x89C8;&#x5668;&#x6240;&#x5728;&#x65F6;&#x533A;&#x663E;&#x793A;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x65E2;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x672C;&#x5730;&#x65F6;&#x95F4;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x8C03;&#x6574;&#x540E;&#x7684;UTC&#x65F6;&#x95F4;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> localDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
-<span class="hljs-comment">// &#x83B7;&#x53D6;&#x672C;&#x5730;&#x65F6;&#x95F4;</span>
-<span class="hljs-built_in">console</span>.log(localDate.toLocaleString()); <span class="hljs-comment">// 2019-8-31 19:21:54</span>
-<span class="hljs-comment">// &#x83B7;&#x53D6; UTC &#x65F6;&#x95F4; &#x76F8;&#x5DEE;8&#x5C0F;&#x65F6;</span>
-<span class="hljs-built_in">console</span>.log(localDate.toUTCString()); <span class="hljs-comment">// Sat, 31 Aug 2019 11:21:54 GMT</span>
-<span class="hljs-built_in">console</span>.log(localDate.toLocaleDateString()); <span class="hljs-comment">// 2019-8-31</span>
-<span class="hljs-built_in">console</span>.log(localDate.toLocaleTimeString()); <span class="hljs-comment">// 19:21:54</span>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5E38;&#x91CF;<code>foo</code>&#x50A8;&#x5B58;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x53EA;&#x662F;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x5373;&#x4E0D;&#x80FD;&#x628A;<code>foo</code>&#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x4F46;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4E3A;&#x5176;&#x6DFB;&#x52A0;&#x65B0;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> a = [];
+a.push(<span class="hljs-string">&apos;Hello&apos;</span>); <span class="hljs-comment">// &#x53EF;&#x6267;&#x884C;</span>
+a.length = <span class="hljs-number">0</span>;    <span class="hljs-comment">// &#x53EF;&#x6267;&#x884C;</span>
+a = [<span class="hljs-string">&apos;Dave&apos;</span>];    <span class="hljs-comment">// &#x62A5;&#x9519;</span>
 </code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5E38;&#x91CF;<code>a</code>&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x672C;&#x8EAB;&#x662F;&#x53EF;&#x5199;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x5C06;&#x53E6;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x8D4B;&#x503C;&#x7ED9;<code>a</code>&#xFF0C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x771F;&#x7684;&#x60F3;&#x5C06;&#x5BF9;&#x8C61;&#x51BB;&#x7ED3;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;<code>Object.freeze</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> foo = <span class="hljs-built_in">Object</span>.freeze({});
+
+<span class="hljs-comment">// &#x5E38;&#x89C4;&#x6A21;&#x5F0F;&#x65F6;&#xFF0C;&#x4E0B;&#x9762;&#x4E00;&#x884C;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#xFF1B;</span>
+<span class="hljs-comment">// &#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x65F6;&#xFF0C;&#x8BE5;&#x884C;&#x4F1A;&#x62A5;&#x9519;</span>
+foo.prop = <span class="hljs-number">123</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5E38;&#x91CF;<code>foo</code>&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x51BB;&#x7ED3;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x6DFB;&#x52A0;&#x65B0;&#x5C5E;&#x6027;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x65F6;&#x8FD8;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
 
                                 
                                 </section>
@@ -983,12 +1012,12 @@
 
             
                 
-                <a href="SetMap.html" class="navigation navigation-prev " aria-label="Previous page: Set,Map">
+                <a href="变量.html" class="navigation navigation-prev " aria-label="Previous page: 数据类型">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Proxy.html" class="navigation navigation-next " aria-label="Next page: Proxy">
+                <a href="数值.html" class="navigation navigation-next " aria-label="Next page: 数值">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -999,7 +1028,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Date","level":"1.2.8.2","depth":3,"next":{"title":"Proxy","level":"1.2.8.3","depth":3,"path":"基础/Proxy.md","ref":"基础/Proxy.md","articles":[]},"previous":{"title":"Set,Map","level":"1.2.8.1","depth":3,"path":"基础/SetMap.md","ref":"基础/SetMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/Date.md","mtime":"2019-09-04T01:04:12.837Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T05:37:19.043Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"let和const命令","level":"1.2.2","depth":2,"next":{"title":"数值","level":"1.2.3","depth":2,"path":"基础/数值.md","ref":"基础/数值.md","articles":[]},"previous":{"title":"数据类型","level":"1.2.1","depth":2,"path":"基础/变量.md","ref":"基础/变量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/let和const命令.md","mtime":"2019-09-04T01:23:45.458Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T05:37:19.043Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
