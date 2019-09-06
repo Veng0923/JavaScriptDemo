@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="标准对象.html" />
+    <link rel="next" href="async.html" />
     
     
-    <link rel="prev" href="箭头函数.html" />
+    <link rel="prev" href="../浏览器/Promise.html" />
     
 
     </head>
@@ -360,12 +360,38 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.7.7" data-path="generator.html">
+        <li class="chapter " data-level="1.2.7.7" data-path="../浏览器/Promise.html">
+            
+                <a href="../浏览器/Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7.8" data-path="generator.html">
             
                 <a href="generator.html">
             
                     
                     generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.9" data-path="async.html">
+            
+                <a href="async.html">
+            
+                    
+                    async
             
                 </a>
             
@@ -541,6 +567,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.9.5" data-path="模块化Module.html">
+            
+                <a href="模块化Module.html">
+            
+                    
+                    模块化Module
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -552,6 +591,19 @@
             
                     
                     异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="编程风格.html">
+            
+                <a href="编程风格.html">
+            
+                    
+                    编程风格
             
                 </a>
             
@@ -688,20 +740,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../浏览器/Promise.html">
-            
-                <a href="../浏览器/Promise.html">
-            
-                    
-                    Promise
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.7" data-path="../浏览器/Canvas.html">
+        <li class="chapter " data-level="1.3.6" data-path="../浏览器/Canvas.html">
             
                 <a href="../浏览器/Canvas.html">
             
@@ -986,6 +1025,60 @@ readFile
 */</span>
 </code></pre>
 <p>&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#x5230;&#x534F;&#x7A0B;&#x662F;&#x975E;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x5B83;&#x5C06;&#x4EFB;&#x52A1;&#x4EA4;&#x7ED9;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;</p>
+<h3 id="co&#x6A21;&#x5757;">co&#x6A21;&#x5757;</h3>
+<p><a href="https://github.com/tj/co" target="_blank">co &#x6A21;&#x5757;</a>&#x662F;&#x8457;&#x540D;&#x7A0B;&#x5E8F;&#x5458; TJ Holowaychuk &#x4E8E; 2013 &#x5E74; 6 &#x6708;&#x53D1;&#x5E03;&#x7684;&#x4E00;&#x4E2A;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E; Generator &#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A; Generator &#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x4F9D;&#x6B21;&#x8BFB;&#x53D6;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gen = <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> f1 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;/etc/fstab&apos;</span>);
+  <span class="hljs-keyword">var</span> f2 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;/etc/shells&apos;</span>);
+  <span class="hljs-built_in">console</span>.log(f1.toString());
+  <span class="hljs-built_in">console</span>.log(f2.toString());
+};
+</code></pre>
+<p>co &#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x4E0D;&#x7528;&#x7F16;&#x5199; Generator &#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x5668;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> co = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;co&apos;</span>);
+co(gen);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;Generator &#x51FD;&#x6570;&#x53EA;&#x8981;&#x4F20;&#x5165;<code>co</code>&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+<p><code>co</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript">co(gen).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Generator &#x51FD;&#x6570;&#x6267;&#x884C;&#x5B8C;&#x6210;&apos;</span>);
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7B49;&#x5230; Generator &#x51FD;&#x6570;&#x6267;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5C31;&#x4F1A;&#x8F93;&#x51FA;&#x4E00;&#x884C;&#x63D0;&#x793A;&#x3002;</p>
+<h3 id="&#x5904;&#x7406;&#x5E76;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;">&#x5904;&#x7406;&#x5E76;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</h3>
+<p>co &#x652F;&#x6301;&#x5E76;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5373;&#x5141;&#x8BB8;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x7B49;&#x5230;&#x5B83;&#x4EEC;&#x5168;&#x90E8;&#x5B8C;&#x6210;&#xFF0C;&#x624D;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#xFF0C;&#x8981;&#x628A;&#x5E76;&#x53D1;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x653E;&#x5728;&#x6570;&#x7EC4;&#x6216;&#x5BF9;&#x8C61;&#x91CC;&#x9762;&#xFF0C;&#x8DDF;&#x5728;<code>yield</code>&#x8BED;&#x53E5;&#x540E;&#x9762;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x6570;&#x7EC4;&#x7684;&#x5199;&#x6CD5;</span>
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">yield</span> [
+    <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">1</span>),
+    <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">2</span>)
+  ];
+  <span class="hljs-built_in">console</span>.log(res);
+}).catch(onerror);
+
+<span class="hljs-comment">// &#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;</span>
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">yield</span> {
+    <span class="hljs-number">1</span>: <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">1</span>),
+    <span class="hljs-number">2</span>: <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">2</span>),
+  };
+  <span class="hljs-built_in">console</span>.log(res);
+}).catch(onerror);
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript">co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> values = [n1, n2, n3];
+  <span class="hljs-keyword">yield</span> values.map(somethingAsync);
+});
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">somethingAsync</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-comment">// do something async</span>
+  <span class="hljs-keyword">return</span> y
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5141;&#x8BB8;&#x5E76;&#x53D1;&#x4E09;&#x4E2A;<code>somethingAsync</code>&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x7B49;&#x5230;&#x5B83;&#x4EEC;&#x5168;&#x90E8;&#x5B8C;&#x6210;&#xFF0C;&#x624D;&#x4F1A;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</p>
 
                                 
                                 </section>
@@ -1013,12 +1106,12 @@ readFile
 
             
                 
-                <a href="箭头函数.html" class="navigation navigation-prev " aria-label="Previous page: 箭头函数">
+                <a href="../浏览器/Promise.html" class="navigation navigation-prev " aria-label="Previous page: Promise">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="标准对象.html" class="navigation navigation-next " aria-label="Next page: 标准对象">
+                <a href="async.html" class="navigation navigation-next " aria-label="Next page: async">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1029,7 +1122,7 @@ readFile
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"generator","level":"1.2.7.7","depth":3,"next":{"title":"标准对象","level":"1.2.8","depth":2,"path":"基础/标准对象.md","ref":"基础/标准对象.md","articles":[{"title":"Set,Map","level":"1.2.8.1","depth":3,"path":"基础/SetMap.md","ref":"基础/SetMap.md","articles":[]},{"title":"Date","level":"1.2.8.2","depth":3,"path":"基础/Date.md","ref":"基础/Date.md","articles":[]},{"title":"Proxy","level":"1.2.8.3","depth":3,"path":"基础/Proxy.md","ref":"基础/Proxy.md","articles":[]},{"title":"正则表达式","level":"1.2.8.4","depth":3,"path":"基础/RepExp.md","ref":"基础/RepExp.md","articles":[]},{"title":"正则表达式别篇","level":"1.2.8.5","depth":3,"path":"基础/正则表达式.md","ref":"基础/正则表达式.md","articles":[]},{"title":"JSON","level":"1.2.8.6","depth":3,"path":"基础/json.md","ref":"基础/json.md","articles":[]}]},"previous":{"title":"箭头函数","level":"1.2.7.6","depth":3,"path":"基础/箭头函数.md","ref":"基础/箭头函数.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","hide-element","-sharing","sharing-plus","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/generator.md","mtime":"2019-09-06T00:59:53.586Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T01:03:04.582Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"generator","level":"1.2.7.8","depth":3,"next":{"title":"async","level":"1.2.7.9","depth":3,"path":"基础/async.md","ref":"基础/async.md","articles":[]},"previous":{"title":"Promise","level":"1.2.7.7","depth":3,"path":"浏览器/Promise.md","ref":"浏览器/Promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","hide-element","-sharing","sharing-plus","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"基础/generator.md","mtime":"2019-09-06T01:54:44.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T01:05:42.216Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
