@@ -25,6 +25,7 @@
     * [标准对象](基础/标准对象.md)
         * [Set,Map](基础/SetMap.md)
         * [Date](基础/Date.md)
+        * [Math](基础/Math.md)
         * [Proxy](基础/Proxy.md)
         * [正则表达式](基础/RepExp.md)
         * [正则表达式别篇](基础/正则表达式.md)
