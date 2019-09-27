@@ -8,7 +8,7 @@
         "hide-element": {
             "elements": [".gitbook-link"]
         },
-        "favicon":"js.icon",
+        "favicon":"js.ico",
         "sharing": {
             "douban": true,
             "facebook": true,
