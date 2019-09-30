@@ -66,4 +66,9 @@
     * [文件操作](nodejs/文件操作.md)
     * [流Stream](nodejs/流Stream.md)
     * [zlib压缩解压缩](nodejs/zlib压缩解压缩.md)
+    * [net网络](nodejs/net网络.md)
+    * [http](nodejs/http.md)
+    * [express框架](nodejs/express框架.md)
+    * [process 进程](nodejs/process进程.md)
+    * [child_process](nodejs/child_process.md)
 
