@@ -65,4 +65,5 @@
     * [模块](nodejs/模块.md)
     * [文件操作](nodejs/文件操作.md)
     * [流Stream](nodejs/流Stream.md)
+    * [zlib压缩解压缩](nodejs/zlib压缩解压缩.md)
 
