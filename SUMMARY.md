@@ -71,4 +71,6 @@
     * [express框架](nodejs/express框架.md)
     * [process 进程](nodejs/process进程.md)
     * [child_process](nodejs/child_process.md)
+    * [os-操作系统](nodejs/os.md)
+    * [path](nodejs/path.md)
 
