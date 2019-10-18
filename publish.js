@@ -31,7 +31,7 @@ const targetPath = `./`;
 console.log('正在移动文件');
 fs.readdirSync(bookPath, (error, files) => {
     files.forEach(file => {
-        const sourcePaht = path.join(bookPath, file);
+        const sourcePath = path.join(bookPath, file);
         fs.stat(sourcePath, (error, stat) => {
             if (!error) {
                 // console.log(stat);
