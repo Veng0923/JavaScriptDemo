@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>child_process · JavaScript学习</title>
+        <title>os-操作系统 · JavaScript学习</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="os.html" />
     
-    
-    <link rel="prev" href="process进程.html" />
+    <link rel="prev" href="child_process.html" />
     
 
     </head>
@@ -1095,7 +1093,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.10" data-path="child_process.html">
+        <li class="chapter " data-level="1.6.10" data-path="child_process.html">
             
                 <a href="child_process.html">
             
@@ -1108,7 +1106,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.11" data-path="os.html">
+        <li class="chapter active" data-level="1.6.11" data-path="os.html">
             
                 <a href="os.html">
             
@@ -1156,7 +1154,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >child_process</a>
+        <a href=".." >os-操作系统</a>
     </h1>
 </div>
 
@@ -1171,85 +1169,164 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="childprocess">child_process</h1>
-<p>&#x2002;&#x2002;node&#x9075;&#x5FAA;&#x7684;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x5355;&#x8FDB;&#x7A0B;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;node&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x662F;&#x6307;js&#x7684;&#x5F15;&#x64CE;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E14;&#x5728;nodejs&#x7684;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x540C;&#x65F6;node&#x4EE5;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;IO&#x7B49;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;node&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x6A21;&#x5F0F;&#xFF0C;&#x53EA;&#x7EF4;&#x6301;&#x4E00;&#x4E2A;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x5927;&#x5927;&#x51CF;&#x5C11;&#x4E86;&#x7EBF;&#x7A0B;&#x95F4;&#x5207;&#x6362;&#x7684;&#x5F00;&#x9500;&#x3002;</p>
-<p>&#x2002;&#x2002;&#x4F46;&#x662F;node&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x4F7F;&#x5F97;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;CPU&#x5BC6;&#x96C6;&#x578B;&#x64CD;&#x4F5C;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x963B;&#x585E;&#x4E3B;&#x7EBF;&#x7A0B;&#x3002;&#x5BF9;&#x4E8E;CPU&#x5BC6;&#x96C6;&#x578B;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;node&#x4E2D;&#x901A;&#x8FC7;child_process&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x72EC;&#x7ACB;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x901A;&#x8FC7;IPC&#x901A;&#x4FE1;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x662F;&#x5916;&#x90E8;&#x5E94;&#x7528;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;node&#x5B50;&#x7A0B;&#x5E8F;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x540E;&#x53EF;&#x4EE5;&#x5C06;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9;&#x7236;&#x8FDB;&#x7A0B;&#x3002;</p>
-<p>&#x2002;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x6240;&#x8BF4;&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x662F;&#x6307;node&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;js&#x5F15;&#x64CE;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0A;&#x8FD0;&#x884C;&#x3002;&#x5176;&#x4ED6;&#x5F02;&#x6B65;IO&#x548C;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x76F8;&#x5173;&#x7684;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;libuv&#x6765;&#x5B9E;&#x73B0;&#x5185;&#x90E8;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x548C;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x3002;libv&#x4E2D;&#x5B58;&#x5728;&#x4E86;&#x4E00;&#x4E2A;Event Loop&#xFF0C;&#x901A;&#x8FC7;Event Loop&#x6765;&#x5207;&#x6362;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x6548;&#x679C;&#x3002;&#x7B80;&#x5355;&#x7684;&#x6765;&#x8BB2;Event Loop&#x5C31;&#x662F;&#x7EF4;&#x6301;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x6808;&#x548C;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x5F53;&#x524D;&#x6267;&#x884C;&#x6808;&#x4E2D;&#x7684;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x5F02;&#x6B65;IO&#x4EE5;&#x53CA;&#x5B9A;&#x65F6;&#x5668;&#x7B49;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x628A;&#x8FD9;&#x4E9B;&#x5F02;&#x6B65;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x653E;&#x5165;&#x5230;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x4E2D;&#x3002;&#x5F53;&#x524D;&#x6267;&#x884C;&#x6808;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4ECE;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
-<hr>
-<h3 id="&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;">&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;</h3>
-<p>child_process&#x63D0;&#x4F9B;&#x4E86;4&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x65B0;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FD9;4&#x4E2A;&#x65B9;&#x6CD5;&#x5206;&#x522B;&#x4E3A;spawn&#x3001;execFile&#x3001;exec&#x548C;fork&#xFF0C;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x3002;</p>
-<ul>
-<li><strong>spawn</strong> &#xFF1A; &#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x7684;&#x662F;&#x975E;node&#x7A0B;&#x5E8F;&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x7EC4;&#x53C2;&#x6570;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x4EE5;&#x6D41;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x3002;</li>
-<li><strong>execFile</strong>&#xFF1A;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x7684;&#x662F;&#x975E;node&#x7A0B;&#x5E8F;&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x7EC4;&#x53C2;&#x6570;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x4EE5;&#x56DE;&#x8C03;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x3002;</li>
-<li><strong>exec</strong>&#xFF1A;&#x5B50;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x7684;&#x662F;&#x975E;node&#x7A0B;&#x5E8F;&#xFF0C;&#x4F20;&#x5165;&#x4E00;&#x4E32;shell&#x547D;&#x4EE4;&#xFF0C;&#x6267;&#x884C;&#x540E;&#x7ED3;&#x679C;&#x4EE5;&#x56DE;&#x8C03;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0E;execFile 
-&#x4E0D;&#x540C;&#x7684;&#x662F;exec&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x4E00;&#x4E32;shell&#x547D;&#x4EE4;&#x3002;</li>
-<li><strong>fork</strong>&#xFF1A;&#x5B50;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x7684;&#x662F;node&#x7A0B;&#x5E8F;&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x7EC4;&#x53C2;&#x6570;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x4EE5;&#x6D41;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0E;spawn&#x4E0D;&#x540C;&#xFF0C;fork&#x751F;&#x6210;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x53EA;&#x80FD;&#x6267;&#x884C;node&#x5E94;&#x7528;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x5C0F;&#x8282;&#x5C06;&#x5177;&#x4F53;&#x7684;&#x4ECB;&#x7ECD;&#x8FD9;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x3002;</li>
-</ul>
-<hr>
-<h4 id="spawn">spawn</h4>
-<p>&#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> childProcess = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;child_process&quot;</span>);
-
-<span class="hljs-keyword">const</span> hello = childProcess.spawn(<span class="hljs-string">&quot;echo&quot;</span>,[<span class="hljs-string">&apos;hello&apos;</span>,<span class="hljs-string">&apos;world&apos;</span>]);
-hello.stdout.pipe(process.stdout);
+                                <h1 id="os-&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;">os-&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</h1>
+<p><code>os</code>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x76F8;&#x5173;&#x7684;&#x5B9E;&#x7528;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5F15;&#x5165;<code>os</code>&#x6A21;&#x5757;:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> os = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;os&quot;</span>);
 </code></pre>
-<p>&#x8FD0;&#x884C;shell&#x547D;&#x4EE4;echo&#xFF08;&#x6253;&#x5370;&#xFF09;,&#x53C2;&#x6570;&#x7528;&#x6570;&#x7EC4;&#x5305;&#x542B;&#xFF0C;&#x4E0D;&#x76F4;&#x63A5;&#x6267;&#x884C; echo hello world,&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x6CE8;&#x5165;&#x653B;&#x51FB;&#xFF0C;&#x5C06;&#x6D41;&#x5BFC;&#x5165;&#x63A7;&#x5236;&#x53F0;&#x7684;&#x8F93;&#x51FA;&#x3002;&#x7136;&#x540E;&#x63A7;&#x5236;&#x53F0;&#x4F1A;&#x6253;&#x5370; hello world.</p>
+<h3 id="oseol">os.EOL</h3>
+<p>&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x7684;&#x6362;&#x884C;&#x7B26;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> eol = os.EOL;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`!!<span class="hljs-subst">${eol}</span>!!`</span>);
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-shell">!!
+!!
+</code></pre>
 <hr>
-<h4 id="exec">exec</h4>
-<p>&#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> childProcess = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;child_process&quot;</span>);
-
-childProcess.exec(<span class="hljs-string">&quot;echo hello world&quot;</span>,(error,stdout)=&gt;{
-    <span class="hljs-keyword">if</span> (error) {
-        <span class="hljs-built_in">console</span>.log(error);
-    }<span class="hljs-keyword">else</span> {
-        <span class="hljs-built_in">console</span>.log(stdout);
+<h3 id="oscpus">os.cpus()</h3>
+<p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;&#xFF0C;&#x5305;&#x542B;&#x4E86;cpu&#x5185;&#x6838;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> cpus = os.cpus();
+</code></pre>
+<p>&#x6211;&#x7684;&#x673A;&#x5B50;&#x662F;6&#x6838;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5927;&#x5C0F;&#x4E3A;&#x6570;&#x7EC4;&#x5927;&#x5C0F;&#x4E3A;6&#x3002;</p>
+<pre><code class="lang-shell">[ { model: &apos;Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz&apos;,
+    speed: 1270,
+    times:
+     { user: 2106200, nice: 37300, sys: 492100, idle: 28660300, irq: 0 } },
+  { model: &apos;Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz&apos;,
+    speed: 2060,
+    times:
+     { user: 2278600, nice: 81800, sys: 554800, idle: 28106700, irq: 0 } },
+  { model: &apos;Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz&apos;,
+    speed: 1244,
+    times:
+     { user: 2144000, nice: 65800, sys: 477800, idle: 28601000, irq: 0 } },
+  { model: &apos;Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz&apos;,
+    speed: 1142,
+    times:
+     { user: 2099000, nice: 13400, sys: 484800, idle: 28689800, irq: 0 } },
+  { model: &apos;Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz&apos;,
+    speed: 943,
+    times:
+     { user: 2033100, nice: 27500, sys: 462400, idle: 28703800, irq: 0 } },
+  { model: &apos;Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz&apos;,
+    speed: 1578,
+    times:
+     { user: 2095400, nice: 20400, sys: 524100, idle: 28600800, irq: 0 } } ]
+</code></pre>
+<hr>
+<h3 id="osfreemem">os.freemem()</h3>
+<p>&#x4EE5;&#x6574;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x7A7A;&#x95F2;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> freemem = os.freemem(); <span class="hljs-comment">// =&gt; 538521600</span>
+</code></pre>
+<hr>
+<h3 id="ostotalmem">os.totalmem()</h3>
+<p>&#x4EE5;&#x6574;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x603B;&#x91CF;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> totalmem = os.totalmem(); <span class="hljs-comment">// =&gt;8178692096</span>
+</code></pre>
+<hr>
+<h3 id="osgetprioritypid">os.getPriority([pid])</h3>
+<p>&#x8FD4;&#x56DE;&#x7531;pid&#x6307;&#x5B9A;&#x7684;&#x8FDB;&#x7A0B;&#x7684;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;&#x3002;&#x5982;&#x679C;pid&#x672A;&#x6307;&#x5B9A;&#x6216;&#x8005;&#x7B49;&#x4E8E;0&#xFF0C;&#x90A3;&#x4E48;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> priority = os.getPriority(); <span class="hljs-comment">// =&gt; 0</span>
+</code></pre>
+<hr>
+<h3 id="ossetprioritypidpriority">os.setPriority([pid,]priority)</h3>
+<p>&#x4E3A;pid&#x8FDB;&#x7A0B;&#x8BBE;&#x7F6E;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;&#x3002;pid&#x9ED8;&#x8BA4;&#x662F;0&#xFF0C;&#x5373;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x3002;priority&#x8F93;&#x5165;&#x7684;&#x8303;&#x56F4;&#x4E3A;-20&#xFF08;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;)&#x548C;19&#xFF08;&#x4F4E;&#x4F18;&#x5148;&#x7EA7;&#xFF09;&#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;&#x3002;&#x7531;&#x4E8E; Unix &#x4F18;&#x5148;&#x7EA7;&#x548C; Windows &#x4F18;&#x5148;&#x7EA7;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#xFF0C; <code>priority</code> &#x4F1A;&#x88AB;&#x6620;&#x5C04;&#x5230; <code>os.constants.priority</code> &#x4E2D;&#x7684;&#x516D;&#x4E2A;&#x4F18;&#x5148;&#x7EA7;&#x5E38;&#x91CF;&#x4E4B;&#x4E00;&#x3002; &#x5F53;&#x68C0;&#x7D22;&#x8FDB;&#x7A0B;&#x4F18;&#x5148;&#x7EA7;&#x65F6;&#xFF0C;&#x6B64;&#x8303;&#x56F4;&#x7684;&#x6620;&#x5C04;&#x53EF;&#x80FD;&#x5BFC;&#x81F4; Windows &#x4E0A;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7565;&#x6709;&#x4E0D;&#x540C;&#x3002; &#x4E3A;&#x907F;&#x514D;&#x6DF7;&#x6DC6;&#xFF0C;&#x5EFA;&#x8BAE;&#x5C06; <code>priority</code> &#x8BBE;&#x7F6E;&#x4E3A;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x4F18;&#x5148;&#x7EA7;&#x5E38;&#x91CF;&#x3002;</p>
+<p><code>os.constants</code>&#x8FD4;&#x56DE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7279;&#x5B9A;&#x5E38;&#x91CF;&#x7684;&#x5BF9;&#x8C61;,&#x5176;&#x4E2D;&#x5C31;&#x6709;&#x8FDB;&#x7A0B;&#x4F18;&#x5148;&#x7EA7;&#x6570;&#x7684;&#x5E38;&#x91CF;&#x3002;&#x6709;&#x4EE5;&#x4E0B;&#x5E38;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-shell">{
+  &quot;PRIORITY_LOW&quot;: 19,
+  &quot;PRIORITY_BELOW_NORMAL&quot;: 10,
+  &quot;PRIORITY_NORMAL&quot;: 0,
+  &quot;PRIORITY_ABOVE_NORMAL&quot;: -7,
+  &quot;PRIORITY_HIGH&quot;: -14,
+  &quot;PRIORITY_HIGHEST&quot;: -20
+}
+</code></pre>
+<hr>
+<h3 id="oshomedir">os.homedir()</h3>
+<p>&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> homedir = os.homedir(); <span class="hljs-comment">// =&gt; &quot;/home/veng&quot;</span>
+</code></pre>
+<hr>
+<h3 id="ostmpdir">os.tmpdir()</h3>
+<p>&#x8FD4;&#x56DE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x9ED8;&#x8BA4;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> tmpdir = os.tmpdir(); <span class="hljs-comment">// =&gt; &quot;/tmp&quot;</span>
+</code></pre>
+<hr>
+<h3 id="oshostname">os.hostname()</h3>
+<p>&#x8FD4;&#x56DE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> hostname = os.hostname(); <span class="hljs-comment">// =&gt; &quot;veng-OptiPlex-3060&quot;</span>
+</code></pre>
+<hr>
+<h3 id="osnetworkinterfaces">os.networkInterfaces()</h3>
+<p>&#x8FD4;&#x56DE;&#x672C;&#x673A;&#x7684;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> networkInterfaces = os.networkInterfaces();
+</code></pre>
+<pre><code class="lang-shell">{
+  &quot;lo&quot;: [
+    {
+      &quot;address&quot;: &quot;127.0.0.1&quot;,
+      &quot;netmask&quot;: &quot;255.0.0.0&quot;,
+      &quot;family&quot;: &quot;IPv4&quot;,
+      &quot;mac&quot;: &quot;00:00:00:00:00:00&quot;,
+      &quot;internal&quot;: true,
+      &quot;cidr&quot;: &quot;127.0.0.1/8&quot;
+    },
+    {
+      &quot;address&quot;: &quot;::1&quot;,
+      &quot;netmask&quot;: &quot;ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff&quot;,
+      &quot;family&quot;: &quot;IPv6&quot;,
+      &quot;mac&quot;: &quot;00:00:00:00:00:00&quot;,
+      &quot;scopeid&quot;: 0,
+      &quot;internal&quot;: true,
+      &quot;cidr&quot;: &quot;::1/128&quot;
     }
-});
-</code></pre>
-<p><code>exec</code>,&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD0;&#x884C;shell&#x547D;&#x4EE4;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x6BD4;&#x8F83;&#x5371;&#x9669;&#x3002;&#x5982;&#x679C;&#x5728;&#x540E;&#x9762;&#x53C8;&#x52A0;&#x4E86;&#x4E00;&#x6761;rm&#x6307;&#x4EE4;&#xFF0C;&#x5C31;&#x6709;&#x610F;&#x601D;&#x4E86;&#x3002;&#x6240;&#x6709;&#x4E3A;&#x4E86;&#x8BA9;&#x7A0B;&#x5E8F;&#x6309;&#x7167;&#x6211;&#x4EEC;&#x9884;&#x671F;&#x7684;&#x8FD0;&#x884C;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x7528;exec&#xFF0C;&#x53EF;&#x4EE5;&#x7528;execFile&#x4EE3;&#x66FF;&#x3002;</p>
-<p>&#x6240;&#x4EE5;&#x6709;&#x4E86;execFile&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x6CE8;&#x5165;&#x653B;&#x51FB;&#x3002;</p>
-<hr>
-<h4 id="execfile">execFile</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> childProcess = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;child_process&quot;</span>);
-
-childProcess.execFile(<span class="hljs-string">&apos;echo&apos;</span>,[<span class="hljs-string">&apos;hello&apos;</span>,<span class="hljs-string">&apos;world&apos;</span>],(error,stdout)=&gt;{
-    <span class="hljs-keyword">if</span> (error) {
-        <span class="hljs-built_in">console</span>.log(error);
-    }<span class="hljs-keyword">else</span> {
-        <span class="hljs-built_in">console</span>.log(stdout);
+  ],
+  &quot;enp1s0&quot;: [
+    {
+      &quot;address&quot;: &quot;10.18.139.173&quot;,
+      &quot;netmask&quot;: &quot;255.255.255.0&quot;,
+      &quot;family&quot;: &quot;IPv4&quot;,
+      &quot;mac&quot;: &quot;e4:54:e8:9a:49:00&quot;,
+      &quot;internal&quot;: false,
+      &quot;cidr&quot;: &quot;10.18.139.173/24&quot;
+    },
+    {
+      &quot;address&quot;: &quot;2001:620::4d4d:dfff:d0b8:1fef&quot;,
+      &quot;netmask&quot;: &quot;ffff:ffff:ffff:ffff::&quot;,
+      &quot;family&quot;: &quot;IPv6&quot;,
+      &quot;mac&quot;: &quot;e4:54:e8:9a:49:00&quot;,
+      &quot;scopeid&quot;: 0,
+      &quot;internal&quot;: false,
+      &quot;cidr&quot;: &quot;2001:620::4d4d:dfff:d0b8:1fef/64&quot;
+    },
+    {
+      &quot;address&quot;: &quot;2001:620::e05a:79a1:ab1e:b4f2&quot;,
+      &quot;netmask&quot;: &quot;ffff:ffff:ffff:ffff::&quot;,
+      &quot;family&quot;: &quot;IPv6&quot;,
+      &quot;mac&quot;: &quot;e4:54:e8:9a:49:00&quot;,
+      &quot;scopeid&quot;: 0,
+      &quot;internal&quot;: false,
+      &quot;cidr&quot;: &quot;2001:620::e05a:79a1:ab1e:b4f2/64&quot;
+    },
+    {
+      &quot;address&quot;: &quot;fe80::dfa:f782:df3f:bc03&quot;,
+      &quot;netmask&quot;: &quot;ffff:ffff:ffff:ffff::&quot;,
+      &quot;family&quot;: &quot;IPv6&quot;,
+      &quot;mac&quot;: &quot;e4:54:e8:9a:49:00&quot;,
+      &quot;scopeid&quot;: 2,
+      &quot;internal&quot;: false,
+      &quot;cidr&quot;: &quot;fe80::dfa:f782:df3f:bc03/64&quot;
     }
-});
+  ]
+}
 </code></pre>
-<p>&#x4E0E;exec&#x76F8;&#x6BD4;&#xFF0C;&#x53C2;&#x6570;&#x662F;&#x4EE5;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x5165;&#x3002;</p>
 <hr>
-<h4 id="fork">fork</h4>
-<p>&#x524D;&#x9762;&#x7684;&#x90FD;&#x662F;&#x8FD0;&#x884C; shell &#x7A0B;&#x5E8F;&#xFF0C;<code>fork</code>&#x53EF;&#x4EE5;&#x8FD0;&#x884C;node&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4E0E;&#x7236;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;</p>
-<p>&#x793A;&#x4F8B;&#xFF1A;</p>
-<p>fork-child.js:</p>
-<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`I am child`</span>);
-process.send(<span class="hljs-string">&quot;hello parent&quot;</span>);
-process.on(<span class="hljs-string">`message`</span>,message=&gt;{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`child receive: <span class="hljs-subst">${message}</span>`</span>);
-});
+<h3 id="osplatform">os.platform()</h3>
+<p>&#x8FD4;&#x56DE;node.js&#x7F16;&#x8BD1;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> platform = os.platform(); <span class="hljs-comment">// =&gt; &quot;linux&quot;</span>
 </code></pre>
-<p>parent:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> childProcess = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;child_process&quot;</span>);
-
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`I am parent`</span>);
-<span class="hljs-keyword">const</span> spawn = childProcess.fork(<span class="hljs-string">&quot;./fork-child&quot;</span>);
-spawn.on(<span class="hljs-string">&apos;message&apos;</span>,message=&gt;{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`parent receive: <span class="hljs-subst">${message}</span>`</span>);
-    spawn.send(<span class="hljs-string">&quot;hello child&quot;</span>);
-});
-</code></pre>
-<p>&#x8FD0;&#x884C;parent&#xFF1A;</p>
-<pre><code class="lang-shell">I am parent
-I am child
-parent receive: hello parent
-child receive: hello child
-</code></pre>
-<p>&#x4E0A;&#x9762;&#x7A0B;&#x5E8F;&#x662F;&#xFF0C;&#x5148;&#x662F;fork&#x4E86;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x5C31;&#x8FD0;&#x884C;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5B50;&#x8FDB;&#x7A0B;&#x5411;&#x7236;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;parent&#x76D1;&#x542C;&#x5230;&#x4E86;&#x5E76;&#x6253;&#x5370;&#xFF0C;&#x5E76;&#x5411;child&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x6761;&#x6D88;&#x606F;&#xFF0C;child&#x4E5F;&#x76D1;&#x542C;&#x5230;&#x4E86;&#x5E76;&#x6253;&#x5370;&#x4E86;&#x7236;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x3002;</p>
 
                                 
                                 </section>
@@ -1277,14 +1354,10 @@ child receive: hello child
 
             
                 
-                <a href="process进程.html" class="navigation navigation-prev " aria-label="Previous page: process 进程">
+                <a href="child_process.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: child_process">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="os.html" class="navigation navigation-next " aria-label="Next page: os-操作系统">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1293,7 +1366,7 @@ child receive: hello child
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"child_process","level":"1.6.10","depth":2,"next":{"title":"os-操作系统","level":"1.6.11","depth":2,"path":"nodejs/os.md","ref":"nodejs/os.md","articles":[]},"previous":{"title":"process 进程","level":"1.6.9","depth":2,"path":"nodejs/process进程.md","ref":"nodejs/process进程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","hide-element","-sharing","sharing-plus","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"js.ico","back-to-top-button":{},"pageview-count":{},"custom-favicon":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"nodejs/child_process.md","mtime":"2019-09-30T10:06:57.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-18T02:16:37.459Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"os-操作系统","level":"1.6.11","depth":2,"previous":{"title":"child_process","level":"1.6.10","depth":2,"path":"nodejs/child_process.md","ref":"nodejs/child_process.md","articles":[]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","hide-element","-sharing","sharing-plus","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"js.ico","back-to-top-button":{},"pageview-count":{},"custom-favicon":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"nodejs/os.md","mtime":"2019-10-09T01:27:28.026Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-18T02:16:37.459Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
