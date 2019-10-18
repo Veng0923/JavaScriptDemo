@@ -7,19 +7,16 @@ const argv = process.argv.slice(2);
 if (argv.length === 0) {
     console.log('请输入commit');
 }
-// if (argv === 1) {
-//     console.log('请输入commit');
-// }
-// 根路经
-// const rootDir = argv[0];
+
 const rootDir = '';
 // git commit
 const message = argv[0];
-// childProcess.spawnSync('cd', [`${rootDir}`]);
-
-childProcess.spawnSync('git', ['add', '.']);
-childProcess.spawnSync('git', ['commit', '-m', `${message}`]);
-childProcess.spawnSync('git', ['push']);
+function gitPush(){
+    childProcess.spawnSync('git', ['add', '.']);
+    childProcess.spawnSync('git', ['commit', '-m', `${message}`]);
+    childProcess.spawnSync('git', ['push']);
+}
+gitPush();
 console.log('master pushed');
 console.log('gitbook installing');
 childProcess.spawnSync('gitbook', ['install']);
@@ -51,9 +48,7 @@ fs.readdirSync(bookPath, (error, files) => {
 });
 childProcess.spawnSync('rm',['-r',bookPath]);
 console.log('文件移动完成');
-childProcess.spawnSync('git', ['add', '.']);
-childProcess.spawnSync('git', ['commit', '-m', `${message}`]);
-childProcess.spawnSync('git', ['push']);
+gitPush();
 console.log('gh-pages分支提交完成');
 childProcess.spawnSync('git',['checkout','master']);
 console.log('finished');
