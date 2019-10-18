@@ -26,8 +26,8 @@ childProcess.spawnSync('gitbook', ['build']);
 console.log('gitbook builded');
 childProcess.spawnSync('git', ['checkout', 'gh-pages']);
 console.log('切换至 gh-pages分支');
-const bookPath = './_book';
-const targetPath = `./`;
+const bookPath = '_book';
+const targetPath = `.`;
 console.log('正在移动文件');
 fs.readdirSync(bookPath, (error, files) => {
     files.forEach(file => {
@@ -38,6 +38,7 @@ fs.readdirSync(bookPath, (error, files) => {
                 if (stat.isDirectory()) {
                     childProcess.execFile('cp', ['-rf', sourcePath, targetPath]);
                 } else if (stat.isFile()) {
+                    targetPah = path.join(targetPath,file);
                     const sourceReadStream = fs.createReadStream(sourcePath);
                     const targetWriteStream = fs.createWriteStream(targetPath);
                     sourceReadStream.pipe(targetWriteStream);
