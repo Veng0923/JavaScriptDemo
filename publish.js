@@ -47,9 +47,9 @@ fs.readdirSync(bookPath, (error, files) => {
         });
     });
 });
-// childProcess.spawnSync('rm',['-r',bookPath]);
+childProcess.spawnSync('rm',['-r',bookPath]);
 console.log('文件移动完成');
 gitPush();
 console.log('gh-pages分支提交完成');
-// childProcess.spawnSync('git',['checkout','master']);
+childProcess.spawnSync('git',['checkout','master']);
 console.log('finished');
