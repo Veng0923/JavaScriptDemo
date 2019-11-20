@@ -6,6 +6,7 @@
     * [let和const命令](基础/let和const命令.md)
     * [数值](基础/数值.md)
     * [字符串](基础/字符串.md)
+    * [对象](./基础/对象.md)
     * [数组](基础/数组.md)
     * [Symbol](基础/Symbol.md)
     * [函数](基础/函数.md)
@@ -73,3 +74,4 @@
     * [process 进程](nodejs/process进程.md)
     * [child_process](nodejs/child_process.md)
     * [os-操作系统](nodejs/os.md)
+
