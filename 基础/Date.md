@@ -63,3 +63,39 @@ console.log(localDate.toUTCString()); // Sat, 31 Aug 2019 11:21:54 GMT
 console.log(localDate.toLocaleDateString()); // 2019-8-31
 console.log(localDate.toLocaleTimeString()); // 19:21:54
 ```
+
+### 时间的计算
+
+#### 比较两个时间的大小
+
+```js
+'use strict';
+
+const date1 = new Date('2020-03-14 17:23:13');
+const date2 = new Date('2020-03-14 18:07:54');
+const result = date1.getTime() - date2.getTime();
+if (result > 0) {
+  console.log('date1 > date2');
+} else if (result < 0) {
+  console.log('date1 < date2');
+} else {
+  console.log('date1 == date2');
+}
+
+===>terminal
+date1 < date2
+```
+
+#### 加上一段时间
+
+```js
+const date = new Date();
+console.log(date.toLocaleString());
+// 加上一个小时
+date.setTime(date.getTime() + 60 * 60 * 1000);
+console.log(date.toLocaleString());
+
+===> terminal
+2020-3-14 21:50:23
+2020-3-14 22:50:23
+```
