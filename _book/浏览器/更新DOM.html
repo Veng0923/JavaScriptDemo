@@ -1197,8 +1197,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x66F4;&#x65B0;dom">&#x66F4;&#x65B0;DOM</h1>
+                                <h2 id="&#x66F4;&#x65B0;dom">&#x66F4;&#x65B0;DOM</h2>
 <p>&#x62FF;&#x5230;&#x4E00;&#x4E2A;DOM&#x8282;&#x70B9;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x3002;</p>
+<h3 id="&#x4FEE;&#x6539;&#x5143;&#x7D20;&#x4E2D;&#x7684;&#x6587;&#x672C;">&#x4FEE;&#x6539;&#x5143;&#x7D20;&#x4E2D;&#x7684;&#x6587;&#x672C;</h3>
 <p>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x8282;&#x70B9;&#x7684;&#x6587;&#x672C;&#xFF0C;&#x65B9;&#x6CD5;&#x6709;&#x4E24;&#x79CD;&#xFF1A;</p>
 <p>&#x4E00;&#x79CD;&#x662F;&#x4FEE;&#x6539;<code>innerHTML</code>&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#xFF0C;&#x4E0D;&#x4F46;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;DOM&#x8282;&#x70B9;&#x7684;&#x6587;&#x672C;&#x5185;&#x5BB9;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;HTML&#x7247;&#x6BB5;&#x4FEE;&#x6539;DOM&#x8282;&#x70B9;&#x5185;&#x90E8;&#x7684;&#x5B50;&#x6811;&#xFF1A;</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// &#x83B7;&#x53D6;&lt;p id=&quot;p-id&quot;&gt;...&lt;/p&gt;</span>
@@ -1219,6 +1220,7 @@ p.innerText = <span class="hljs-string">&apos;&lt;script&gt;alert(&quot;Hi&quot;
 <span class="hljs-comment">// &lt;p id=&quot;p-id&quot;&gt;&amp;lt;script&amp;gt;alert(&quot;Hi&quot;)&amp;lt;/script&amp;gt;&lt;/p&gt;</span>
 </code></pre>
 <p>&#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;<code>innerText</code>&#x4E0D;&#x8FD4;&#x56DE;&#x9690;&#x85CF;&#x5143;&#x7D20;&#x7684;&#x6587;&#x672C;&#xFF0C;&#x800C;<code>textContent</code>&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x6587;&#x672C;&#x3002;&#x53E6;&#x5916;&#x6CE8;&#x610F;IE&lt;9&#x4E0D;&#x652F;&#x6301;<code>textContent</code>&#x3002;</p>
+<h3 id="&#x4FEE;&#x6539;css">&#x4FEE;&#x6539;css</h3>
 <p>&#x4FEE;&#x6539;CSS&#x4E5F;&#x662F;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#x3002;DOM&#x8282;&#x70B9;&#x7684;<code>style</code>&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x6240;&#x6709;&#x7684;CSS&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x6216;&#x8BBE;&#x7F6E;&#x3002;&#x56E0;&#x4E3A;CSS&#x5141;&#x8BB8;<code>font-size</code>&#x8FD9;&#x6837;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x4F46;&#x5B83;&#x5E76;&#x975E;JavaScript&#x6709;&#x6548;&#x7684;&#x5C5E;&#x6027;&#x540D;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5728;JavaScript&#x4E2D;&#x6539;&#x5199;&#x4E3A;&#x9A7C;&#x5CF0;&#x5F0F;&#x547D;&#x540D;<code>fontSize</code>&#xFF1A;</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// &#x83B7;&#x53D6;&lt;p id=&quot;p-id&quot;&gt;...&lt;/p&gt;</span>
 <span class="hljs-keyword">var</span> p = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;p-id&apos;</span>);
@@ -1226,6 +1228,14 @@ p.innerText = <span class="hljs-string">&apos;&lt;script&gt;alert(&quot;Hi&quot;
 p.style.color = <span class="hljs-string">&apos;#ff0000&apos;</span>;
 p.style.fontSize = <span class="hljs-string">&apos;20px&apos;</span>;
 p.style.paddingTop = <span class="hljs-string">&apos;2em&apos;</span>;
+</code></pre>
+<h3 id="&#x4FEE;&#x6539;&#x5143;&#x7D20;&#x5C5E;&#x6027;">&#x4FEE;&#x6539;&#x5143;&#x7D20;&#x5C5E;&#x6027;</h3>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x83B7;&#x53D6;&lt;p id=&quot;p-id&quot; min=&apos;2&apos; &gt;...&lt;/p&gt;</span>
+<span class="hljs-keyword">var</span> p = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;p-id&apos;</span>);
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x5143;&#x7D20;&#x4EFB;&#x4E00;&#x5C5E;&#x6027;</span>
+<span class="hljs-keyword">var</span> min = p.getAttribute(<span class="hljs-string">&quot;min&quot;</span>);
+<span class="hljs-comment">// &#x4FEE;&#x6539;&#x8BBE;&#x7F6E;</span>
+p.setAttribute(<span class="hljs-string">&quot;min&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>);
 </code></pre>
 
                                 
@@ -1270,7 +1280,7 @@ p.style.paddingTop = <span class="hljs-string">&apos;2em&apos;</span>;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"更新DOM","level":"1.4.2.1","depth":3,"next":{"title":"插入DOM","level":"1.4.2.2","depth":3,"path":"浏览器/插入DOM.md","ref":"浏览器/插入DOM.md","articles":[]},"previous":{"title":"操作DOM","level":"1.4.2","depth":2,"path":"浏览器/操作DOM.md","ref":"浏览器/操作DOM.md","articles":[{"title":"更新DOM","level":"1.4.2.1","depth":3,"path":"浏览器/更新DOM.md","ref":"浏览器/更新DOM.md","articles":[]},{"title":"插入DOM","level":"1.4.2.2","depth":3,"path":"浏览器/插入DOM.md","ref":"浏览器/插入DOM.md","articles":[]},{"title":"删除DOM","level":"1.4.2.3","depth":3,"path":"浏览器/删除DOM.md","ref":"浏览器/删除DOM.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","hide-element","-sharing","sharing-plus","custom-favicon","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"js.ico","back-to-top-button":{},"pageview-count":{},"custom-favicon":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"浏览器/更新DOM.md","mtime":"2020-04-11T12:51:38.021Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-11T13:10:31.887Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"更新DOM","level":"1.4.2.1","depth":3,"next":{"title":"插入DOM","level":"1.4.2.2","depth":3,"path":"浏览器/插入DOM.md","ref":"浏览器/插入DOM.md","articles":[]},"previous":{"title":"操作DOM","level":"1.4.2","depth":2,"path":"浏览器/操作DOM.md","ref":"浏览器/操作DOM.md","articles":[{"title":"更新DOM","level":"1.4.2.1","depth":3,"path":"浏览器/更新DOM.md","ref":"浏览器/更新DOM.md","articles":[]},{"title":"插入DOM","level":"1.4.2.2","depth":3,"path":"浏览器/插入DOM.md","ref":"浏览器/插入DOM.md","articles":[]},{"title":"删除DOM","level":"1.4.2.3","depth":3,"path":"浏览器/删除DOM.md","ref":"浏览器/删除DOM.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["lunr","pageview-count","chapter-fold","back-to-top-button","code","hide-element","-sharing","sharing-plus","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"js.ico","back-to-top-button":{},"pageview-count":{},"custom-favicon":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Veng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JavaScript学习","language":"zh-hans","gitbook":"*","description":"javaScript的学习笔记"},"file":{"path":"浏览器/更新DOM.md","mtime":"2020-12-10T02:48:50.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-10T03:00:51.663Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1309,10 +1319,6 @@ p.style.paddingTop = <span class="hljs-string">&apos;2em&apos;</span>;
     
         
         <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
