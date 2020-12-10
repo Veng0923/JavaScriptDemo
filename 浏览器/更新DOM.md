@@ -1,6 +1,8 @@
-# 更新DOM
+## 更新DOM
 
 拿到一个DOM节点后，我们可以对它进行更新。
+
+### 修改元素中的文本
 
 可以直接修改节点的文本，方法有两种：
 
@@ -31,6 +33,8 @@ p.innerText = '<script>alert("Hi")</script>';
 
 两者的区别在于读取属性时，`innerText`不返回隐藏元素的文本，而`textContent`返回所有文本。另外注意IE<9不支持`textContent`。
 
+### 修改css
+
 修改CSS也是经常需要的操作。DOM节点的`style`属性对应所有的CSS，可以直接获取或设置。因为CSS允许`font-size`这样的名称，但它并非JavaScript有效的属性名，所以需要在JavaScript中改写为驼峰式命名`fontSize`：
 
 ```javascript
@@ -40,4 +44,15 @@ var p = document.getElementById('p-id');
 p.style.color = '#ff0000';
 p.style.fontSize = '20px';
 p.style.paddingTop = '2em';
+```
+
+### 修改元素属性
+
+```js
+// 获取<p id="p-id" min='2' >...</p>
+var p = document.getElementById('p-id');
+// 获取元素任一属性
+var min = p.getAttribute("min");
+// 修改设置
+p.setAttribute("min", "3");
 ```
